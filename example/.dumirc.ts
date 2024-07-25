@@ -53,7 +53,7 @@ export default defineConfig({
   define: {
     'process.env': process.env,
   },
-  // favicons: ['https://npm.elemecdn.com/@lobehub/assets-favicons/assets/favicon.ico'],
+  favicons: ['https://avatars.githubusercontent.com/u/148947838?s=64&v=4'],
   locales: [
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'English' },

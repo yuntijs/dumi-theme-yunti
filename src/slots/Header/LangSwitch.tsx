@@ -55,12 +55,12 @@ const displayLangMap: Record<string, string> = {
 const SingleSwitch = memo<{ current: ILocaleItem; locale: ILocaleItem }>(({ locale, current }) => {
   const { pathname } = useLocation();
   const [path, setPath] = useState(() =>
-    getTargetLocalePath({ current, pathname, target: locale }),
+    getTargetLocalePath({ current, pathname, target: locale })
   );
 
   useEffect(() => {
     setPath(getTargetLocalePath({ current, pathname, target: locale }));
-  }, [pathname, current.id, locale.id]);
+  }, [current, locale, pathname]);
 
   return (
     <Link to={path}>
@@ -80,21 +80,22 @@ const SingleSwitch = memo<{ current: ILocaleItem; locale: ILocaleItem }>(({ loca
 });
 
 const LangSwitch = memo(() => {
-  const locales = useSiteStore((s) => s.siteData.locales);
-  const current = useSiteStore((s) => s.locale);
+  const locales = useSiteStore(s => s.siteData.locales);
+  const current = useSiteStore(s => s.locale);
 
   // do not render in single language
   if (locales.length <= 1) return;
 
   return locales.length > 2 ? (
     <NativeSelect
-      onChange={(index) => {
+      onChange={index => {
+        // eslint-disable-next-line no-console
         console.log(
           getTargetLocalePath({
             current,
             pathname: location.pathname,
             target: locales[index],
-          }),
+          })
         );
 
         history.push(
@@ -102,14 +103,14 @@ const LangSwitch = memo(() => {
             current,
             pathname: location.pathname,
             target: locales[index],
-          }),
+          })
         );
       }}
-      options={locales.map((item) => ({
+      options={locales.map(item => ({
         label: displayLangMap[item.id],
         value: item.id,
       }))}
-      renderItem={(item, index) => `${languageMap[locales[index].id]} ${locales[index].name}`}
+      renderItem={(_item, index) => `${languageMap[locales[index].id]} ${locales[index].name}`}
       style={{
         alignItems: 'center',
         display: 'flex',
@@ -118,7 +119,7 @@ const LangSwitch = memo(() => {
         minWidth: 32,
         padding: 0,
       }}
-      value={locales.findIndex((l) => l.id === current.id)}
+      value={locales.findIndex(l => l.id === current.id)}
     />
   ) : (
     // single language switch

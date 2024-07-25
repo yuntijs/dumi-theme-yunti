@@ -40,6 +40,7 @@ const Documents = memo(() => {
           />
         </div>
       ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [giscus, location.pathname]
   );
   return (

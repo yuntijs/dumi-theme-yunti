@@ -17,5 +17,5 @@ export const useCopied = () => {
 
   const setCopied = useCallback(() => setCopy(true), []);
 
-  return useMemo(() => ({ copied, setCopied }), [copied]);
+  return useMemo(() => ({ copied, setCopied }), [copied, setCopied]);
 };

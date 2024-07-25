@@ -5,13 +5,13 @@ import { memo, useEffect } from 'react';
 import { useThemeStore } from '@/store/useThemeStore';
 
 const ThemeSwitch = memo(() => {
-  const themeMode = useThemeStore((s) => s.themeMode);
+  const themeMode = useThemeStore(s => s.themeMode);
   const setColorMode = usePrefersColor()[2];
-  useEffect(() => setColorMode(themeMode), [themeMode]);
+  useEffect(() => setColorMode(themeMode), [setColorMode, themeMode]);
 
   return (
     <ThemeSwitchButton
-      onThemeSwitch={(themeMode) => {
+      onThemeSwitch={themeMode => {
         useThemeStore.setState({ themeMode });
       }}
       themeMode={themeMode}

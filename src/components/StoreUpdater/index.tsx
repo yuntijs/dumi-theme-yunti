@@ -23,6 +23,7 @@ const useReact18xUpdater = (effect: EffectCallback, deps?: DependencyList) => {
     (React as any).startTransition(() => {
       effect();
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 };
 const useLegacyUpdater = (effect: EffectCallback, deps?: DependencyList) => {
@@ -77,10 +78,9 @@ export const StoreUpdater = () => {
   );
 
   useSyncState('siteData', siteData, () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line unused-imports/no-unused-vars
     const { setLoading, ...data } = siteData;
     const {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       siteData: { setLoading: _, ...previousData },
     } = useSiteStore.getState();
 
