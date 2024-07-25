@@ -1,5 +1,6 @@
 import { useDebounceEffect } from 'ahooks';
 import {
+  useIntl,
   useLocale,
   useLocation,
   useNavData,
@@ -9,7 +10,7 @@ import {
   useTabMeta,
 } from 'dumi';
 import isEqual from 'fast-deep-equal';
-import React, { type DependencyList, type EffectCallback, useEffect } from 'react';
+import React, { type DependencyList, type EffectCallback, useEffect, useMemo } from 'react';
 
 import { SiteStore, useSiteStore } from '@/store/useSiteStore';
 
@@ -30,7 +31,7 @@ const useLegacyUpdater = (effect: EffectCallback, deps?: DependencyList) => {
       effect();
     },
     deps,
-    { maxWait: 96, wait: 32 },
+    { maxWait: 96, wait: 32 }
   );
 };
 const useUpdater =
@@ -39,7 +40,7 @@ const useUpdater =
 const useSyncState = <T extends keyof SiteStore>(
   key: T,
   value: SiteStore[T],
-  updateMethod?: (key: T, value: SiteStore[T]) => void,
+  updateMethod?: (key: T, value: SiteStore[T]) => void
 ) => {
   const updater = updateMethod
     ? updateMethod
@@ -57,12 +58,6 @@ const useSyncState = <T extends keyof SiteStore>(
   }, [value]);
 };
 
-const homeNav = {
-  activePath: '/',
-  link: '/',
-  title: 'Home',
-};
-
 export const StoreUpdater = () => {
   const siteData: any = useSiteData();
   const sidebar = useSidebarData();
@@ -71,6 +66,15 @@ export const StoreUpdater = () => {
   const navData = useNavData();
   const location = useLocation();
   const locale = useLocale();
+  const intl = useIntl();
+  const homeNav = useMemo(
+    () => ({
+      activePath: '/',
+      link: '/',
+      title: intl.formatMessage({ id: 'header.nav.home' }),
+    }),
+    [intl]
+  );
 
   useSyncState('siteData', siteData, () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

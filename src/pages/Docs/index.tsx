@@ -1,6 +1,6 @@
 import { Giscus } from '@lobehub/ui';
 import { useResponsive } from 'antd-style';
-import { useOutlet } from 'dumi';
+import { useLocation, useOutlet } from 'dumi';
 import { memo, useCallback, useEffect } from 'react';
 import { Center } from 'react-layout-kit';
 import { shallow } from 'zustand/shallow';
@@ -13,10 +13,11 @@ import { useStyles } from './styles';
 
 const Documents = memo(() => {
   const outlet = useOutlet();
+  const location = useLocation();
   const { mobile } = useResponsive();
   const { isApiPage, giscus } = useSiteStore(
-    (st) => ({ giscus: giscusSel(st), isApiPage: isApiPageSel(st) }),
-    shallow,
+    st => ({ giscus: giscusSel(st), isApiPage: isApiPageSel(st) }),
+    shallow
   );
   const { styles } = useStyles();
 
@@ -39,7 +40,7 @@ const Documents = memo(() => {
           />
         </div>
       ),
-    [giscus, location.pathname],
+    [giscus, location.pathname]
   );
   return (
     <>

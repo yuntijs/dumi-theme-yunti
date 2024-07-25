@@ -1,4 +1,4 @@
-const config = require('@lobehub/lint').eslint;
+const config = require('@yuntijs/lint').eslint;
 
 module.exports = {
   ...config,

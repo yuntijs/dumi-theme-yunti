@@ -1,10 +1,10 @@
-import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
+import { createWithEqualityFn } from 'zustand/traditional';
 
 import { SiteStore, initialState } from './initialState';
 
-export const useSiteStore = create<SiteStore>()(
-  devtools(() => initialState, { name: 'dumi-theme-lobehub' }),
+export const useSiteStore = createWithEqualityFn<SiteStore>()(
+  devtools(() => initialState, { name: 'dumi-theme-yunti' })
 );
 
 export * from './initialState';

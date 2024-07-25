@@ -1,5 +1,6 @@
 import { Features, FeaturesProps, Snippet } from '@lobehub/ui';
 import { Palette, Smartphone, Zap } from 'lucide-react';
+import React from 'react';
 import { Center } from 'react-layout-kit';
 
 const items: FeaturesProps['items'] = [
@@ -23,14 +24,16 @@ const items: FeaturesProps['items'] = [
   },
 ];
 
-export default () => {
+const Index = () => {
   return (
     <Center gap={32}>
       <Center>
-        <h2 style={{ fontSize: 20 }}>To install dumi-theme-lobehub, run the following command:</h2>
-        <Snippet language={'bash'}>{'$ bun add dumi dumi-theme-lobehub'}</Snippet>
+        <h2 style={{ fontSize: 20 }}>To install dumi-theme-yunti, run the following command:</h2>
+        <Snippet language={'bash'}>{'$ pnpm add dumi dumi-theme-yunti'}</Snippet>
       </Center>
       <Features items={items} />
     </Center>
   );
 };
+
+export default Index;

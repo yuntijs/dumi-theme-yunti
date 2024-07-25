@@ -12,7 +12,7 @@ import { getColumns } from './columns';
 import { useStyles } from './style';
 
 const Footer = memo(() => {
-  const { themeConfig, pkg } = useSiteStore((s) => s.siteData, isEqual);
+  const { themeConfig, pkg } = useSiteStore(s => s.siteData, isEqual);
   const { footerConfig, footer } = themeConfig;
   const githubUrl = useSiteStore(githubSel, shallow);
   const { styles, theme } = useStyles();
@@ -34,7 +34,7 @@ const Footer = memo(() => {
       bottom={
         mobile ? (
           <Center className={styles.container}>
-            Copyright © 2022-{new Date().getFullYear()}
+            Copyright © {new Date().getFullYear()}
             <Flexbox
               align={'center'}
               dangerouslySetInnerHTML={{ __html: bottomFooter }}
@@ -43,7 +43,7 @@ const Footer = memo(() => {
           </Center>
         ) : (
           <Center horizontal>
-            Copyright © 2022-{new Date().getFullYear()} <Divider type={'vertical'} />
+            Copyright © {new Date().getFullYear()} <Divider type={'vertical'} />
             <span dangerouslySetInnerHTML={{ __html: bottomFooter }} />
           </Center>
         )

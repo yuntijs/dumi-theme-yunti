@@ -1,4 +1,4 @@
-# Gitignore for LobeHub
+# Gitignore for YuntiJS
 ################################################################
 
 # general
@@ -15,7 +15,6 @@ tmp
 # dependencies
 node_modules
 *.log
-*.lock
 package-lock.json
 
 # ci
@@ -42,4 +41,4 @@ test-output
 
 # misc
 # add other ignore file below
-bun.lockb
+example/server

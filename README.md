@@ -2,13 +2,9 @@
 
 <div align="center">
 
-<img height="120" src="https://registry.npmmirror.com/@lobehub/assets-logo/latest/files/assets/logo-3d.webp">
-<img height="120" src="https://gw.alipayobjects.com/zos/kitchen/qJ3l3EPsdW/split.svg">
-<img height="120" src="https://gw.alipayobjects.com/zos/bmw-prod/d3e3eb39-1cd7-4aa5-827c-877deced6b7e/lalxt4g3_w256_h256.png">
+<h1>Dumi Theme YuntiJS</h1>
 
-<h1>Dumi Theme Lobehub</h1>
-
-dumi-theme-lobehub is a documentation site theme package designed for `Dumi 2`. <br/>It provides a more beautiful and user-friendly development and reading experience based on `@lobehub/ui`
+dumi-theme-yunti is a documentation site theme package designed for `Dumi 2`. <br/>It provides a more beautiful and user-friendly development and reading experience based on `@lobehub/ui`
 
 [![][npm-release-shield]][npm-release-link]
 [![][github-releasedate-shield]][github-releasedate-link]
@@ -33,7 +29,7 @@ dumi-theme-lobehub is a documentation site theme package designed for `Dumi 2`. 
 
 - [✨ Features](#-features)
 - [📦 Installation](#-installation)
-- [🤯 Usage](#-usage)
+- [☁️ Usage](#️-usage)
 - [⌨️ Local Development](#️-local-development)
 - [🤝 Contributing](#-contributing)
 - [🔗 Links](#-links)
@@ -42,9 +38,6 @@ dumi-theme-lobehub is a documentation site theme package designed for `Dumi 2`. 
 ####
 
 </details>
-
-> \[!WARNING]
-> Not Support Dumi >= 2.3 yet
 
 ## ✨ Features
 
@@ -63,12 +56,10 @@ dumi-theme-lobehub is a documentation site theme package designed for `Dumi 2`. 
 
 ## 📦 Installation
 
-To install `dumi-theme-lobehub`, run the following command:
-
-[![][bun-shield]][bun-link]
+To install `dumi-theme-yunti`, run the following command:
 
 ```bash
-$ bun add dumi dumi-theme-lobehub
+$ pnpm add dumi dumi-theme-yunti
 ```
 
 <div align="right">
@@ -77,17 +68,17 @@ $ bun add dumi dumi-theme-lobehub
 
 </div>
 
-## 🤯 Usage
+## ☁️ Usage
 
 Usage After installation, start the site with `dumi`, and the theme will be automatically loaded for use.
 
 ```ts
 interface SiteThemeConfig {
-  actions: HeroProps['actions'];
+  actions?: HeroProps['actions'];
   apiHeader?: ApiHeaderConfig | false;
   description?: string;
   docStyle?: 'block' | 'pure';
-  features: FeaturesProps['items'];
+  features?: FeaturesProps['items'];
   footer?: string | false;
   footerConfig?: FooterConfig;
   giscus?: {
@@ -102,16 +93,16 @@ interface SiteThemeConfig {
   logoType?: LogoProps['type'];
   name?: string;
   siteToken?: SiteConfigToken;
-  socialLinks?: {
-    discord?: `https://discord.gg/${string}`;
-    github?: string;
-  };
+  // socialLinks?: {
+  //   discord?: `https://discord.gg/${string}`;
+  //   github?: string;
+  // };
   title?: string;
 }
 ```
 
 > \[!NOTE]\
-> For detailed configuration, please refer to the [📘 Type file](https://github.com/lobehub/dumi-theme-lobehub/blob/master/src/types/config.ts) / [📘 Example](https://github.com/lobehub/dumi-theme-lobehub/blob/master/example/.dumirc.ts).
+> For detailed configuration, please refer to the [📘 Type file](https://github.com/yuntijs/dumi-theme-yunti/blob/master/src/types/config.ts) / [📘 Example](https://github.com/yuntijs/dumi-theme-yunti/blob/master/example/.dumirc.ts).
 
 <div align="right">
 
@@ -128,8 +119,8 @@ You can use Github Codespaces for online development:
 Or clone it for local development:
 
 ```bash
-$ git clone https://github.com/lobehub/dumi-theme-lobehub.git
-$ cd dumi-theme-lobehub
+$ git clone https://github.com/yuntijs/dumi-theme-yunti.git
+$ cd dumi-theme-yunti
 $ bun install
 $ bun dev
 ```
@@ -158,9 +149,8 @@ Contributions of all types are more than welcome, if you are interested in contr
 
 ### More Products
 
-- **[🍭 Lobe UI](https://github.com/lobehub/lobe-ui)** - An open-source UI component library for building AIGC web apps.
-- **[🤖 Lobe Chat](https://github.com/lobehub/lobe-chat)** - An open-source, extensible (Function Calling), high-performance chatbot framework. It supports one-click free deployment of your private ChatGPT/LLM web application.
-- **[🤯 Lobe Theme](https://github.com/lobehub/sd-webui-lobe-theme)** - The modern theme for stable diffusion webui, exquisite interface design, highly customizable UI, and efficiency boosting features.
+- **[☁️ Yunti](https://github.com/yuntijs/yunti)** - A lowcode platform.
+- **[🍭 Yunti UI](https://github.com/yuntijs/yunti-ui)** - An open-source UI component library for building AIGC web apps.
 
 <div align="right">
 
@@ -172,36 +162,34 @@ Contributions of all types are more than welcome, if you are interested in contr
 
 #### 📝 License
 
-Copyright © 2023 [LobeHub][profile-link]. <br />
+Copyright © 2024 [YuntiJS][profile-link]. <br />
 This project is [MIT](./LICENSE) licensed.
 
 <!-- LINK GROUP -->
 
 [back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-black?style=flat-square
-[bun-link]: https://bun.sh
-[bun-shield]: https://img.shields.io/badge/-speedup%20with%20bun-black?logo=bun&style=for-the-badge
-[github-action-release-link]: https://github.com/lobehub/dumi-theme-lobehub/actions/workflows/release.yml
-[github-action-release-shield]: https://img.shields.io/github/actions/workflow/status/lobehub/dumi-theme-lobehub/release.yml?label=release&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
-[github-action-test-link]: https://github.com/lobehub/dumi-theme-lobehub/actions/workflows/test.yml
-[github-action-test-shield]: https://img.shields.io/github/actions/workflow/status/lobehub/dumi-theme-lobehub/test.yml?label=test&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
-[github-codespace-link]: https://codespaces.new/lobehub/dumi-theme-lobehub
+[github-action-release-link]: https://github.com/yuntijs/dumi-theme-yunti/actions/workflows/release.yml
+[github-action-release-shield]: https://img.shields.io/github/actions/workflow/status/yuntijs/dumi-theme-yunti/release.yml?label=release&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
+[github-action-test-link]: https://github.com/yuntijs/dumi-theme-yunti/actions/workflows/test.yml
+[github-action-test-shield]: https://img.shields.io/github/actions/workflow/status/yuntijs/dumi-theme-yunti/test.yml?label=test&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
+[github-codespace-link]: https://codespaces.new/yuntijs/dumi-theme-yunti
 [github-codespace-shield]: https://github.com/codespaces/badge.svg
-[github-contrib-link]: https://github.com/lobehub/dumi-theme-lobehub/graphs/contributors
-[github-contrib-shield]: https://contrib.rocks/image?repo=lobehub%2Fdumi-theme-lobehub
-[github-contributors-link]: https://github.com/lobehub/dumi-theme-lobehub/graphs/contributors
-[github-contributors-shield]: https://img.shields.io/github/contributors/lobehub/dumi-theme-lobehub?color=c4f042&labelColor=black&style=flat-square
-[github-forks-link]: https://github.com/lobehub/dumi-theme-lobehub/network/members
-[github-forks-shield]: https://img.shields.io/github/forks/lobehub/dumi-theme-lobehub?color=8ae8ff&labelColor=black&style=flat-square
-[github-issues-link]: https://github.com/lobehub/dumi-theme-lobehub/issues
-[github-issues-shield]: https://img.shields.io/github/issues/lobehub/dumi-theme-lobehub?color=ff80eb&labelColor=black&style=flat-square
-[github-license-link]: https://github.com/lobehub/dumi-theme-lobehub/blob/main/LICENSE
-[github-license-shield]: https://img.shields.io/github/license/lobehub/dumi-theme-lobehub?color=white&labelColor=black&style=flat-square
-[github-releasedate-link]: https://github.com/lobehub/dumi-theme-lobehub/releases
-[github-releasedate-shield]: https://img.shields.io/github/release-date/lobehub/dumi-theme-lobehub?labelColor=black&style=flat-square
-[github-stars-link]: https://github.com/lobehub/dumi-theme-lobehub/network/stargazers
-[github-stars-shield]: https://img.shields.io/github/stars/lobehub/dumi-theme-lobehub?color=ffcb47&labelColor=black&style=flat-square
-[npm-release-link]: https://www.npmjs.com/package/@lobehub/chat
-[npm-release-shield]: https://img.shields.io/npm/v/@lobehub/chat?color=369eff&labelColor=black&logo=npm&logoColor=white&style=flat-square
-[pr-welcome-link]: https://github.com/lobehub/dumi-theme-lobehub/pulls
+[github-contrib-link]: https://github.com/yuntijs/dumi-theme-yunti/graphs/contributors
+[github-contrib-shield]: https://contrib.rocks/image?repo=yuntijs%2Fdumi-theme-yuntijs
+[github-contributors-link]: https://github.com/yuntijs/dumi-theme-yunti/graphs/contributors
+[github-contributors-shield]: https://img.shields.io/github/contributors/yuntijs/dumi-theme-yunti?color=c4f042&labelColor=black&style=flat-square
+[github-forks-link]: https://github.com/yuntijs/dumi-theme-yunti/network/members
+[github-forks-shield]: https://img.shields.io/github/forks/yuntijs/dumi-theme-yunti?color=8ae8ff&labelColor=black&style=flat-square
+[github-issues-link]: https://github.com/yuntijs/dumi-theme-yunti/issues
+[github-issues-shield]: https://img.shields.io/github/issues/yuntijs/dumi-theme-yunti?color=ff80eb&labelColor=black&style=flat-square
+[github-license-link]: https://github.com/yuntijs/dumi-theme-yunti/blob/main/LICENSE
+[github-license-shield]: https://img.shields.io/github/license/yuntijs/dumi-theme-yunti?color=white&labelColor=black&style=flat-square
+[github-releasedate-link]: https://github.com/yuntijs/dumi-theme-yunti/releases
+[github-releasedate-shield]: https://img.shields.io/github/release-date/yuntijs/dumi-theme-yunti?labelColor=black&style=flat-square
+[github-stars-link]: https://github.com/yuntijs/dumi-theme-yunti/network/stargazers
+[github-stars-shield]: https://img.shields.io/github/stars/yuntijs/dumi-theme-yunti?color=ffcb47&labelColor=black&style=flat-square
+[npm-release-link]: https://www.npmjs.com/package/dumi-theme-yunti
+[npm-release-shield]: https://img.shields.io/npm/v/dumi-theme-yunti?color=369eff&labelColor=black&logo=npm&logoColor=white&style=flat-square
+[pr-welcome-link]: https://github.com/yuntijs/dumi-theme-yunti/pulls
 [pr-welcome-shield]: https://img.shields.io/badge/%F0%9F%A4%AF%20PR%20WELCOME-%E2%86%92-ffcb47?labelColor=black&style=for-the-badge
-[profile-link]: https://github.com/lobehub
+[profile-link]: https://github.com/yuntijs

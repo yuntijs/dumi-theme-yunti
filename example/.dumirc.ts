@@ -1,8 +1,9 @@
 import { defineConfig } from 'dumi';
-import { resolve } from 'node:path';
+import path from 'node:path';
 
 import { homepage, name } from '../package.json';
 
+const isProduction = process.env.NODE_ENV === 'production';
 const isWin = process.platform === 'win32';
 
 const themeConfig = {
@@ -26,26 +27,25 @@ const themeConfig = {
     sourceUrl: `{github}/tree/master/src/{atomId}/index.tsx`,
     type: 'doc',
   },
-  description: 'Lobe UI is an open-source UI component library for building chatbot web apps',
-  footer: 'Made with 🤯 by LobeHub',
+  description: 'Yunti UI is an open-source UI component library for building chatbot web apps',
+  footer: 'Made with ☁️ by YuntiJS',
   giscus: {
     category: 'Q&A',
-    categoryId: 'DIC_kwDOJloKoM4CXsCu',
-    repo: 'lobehub/lobe-ui',
-    repoId: 'R_kgDOJloKoA',
+    categoryId: 'DIC_kwDOK7a7Ac4CcBHb',
+    repo: 'yuntijs/yunti-ui',
+    repoId: 'R_kgDOK7a7AQ',
   },
   name: 'DUMI',
   socialLinks: {
-    discord: 'https://discord.gg/AYFPHvv2jT',
     github: homepage,
   },
-  title: 'Dumi Theme LobeHub',
+  title: 'Dumi Theme YuntiJS',
 };
 
 export default defineConfig({
   alias: {
-    '@': resolve(__dirname, '../src'),
-    'dumi-theme-lobehub': resolve(__dirname, '../src'),
+    '@': path.resolve(__dirname, '../src'),
+    'dumi-theme-yunti': path.resolve(__dirname, '../src'),
   },
   codeSplitting: {
     jsStrategy: 'granularChunks',
@@ -53,11 +53,15 @@ export default defineConfig({
   define: {
     'process.env': process.env,
   },
-  favicons: ['https://npm.elemecdn.com/@lobehub/assets-favicons/assets/favicon.ico'],
-  locales: [{ id: 'en-US', name: 'English' }],
+  // favicons: ['https://npm.elemecdn.com/@lobehub/assets-favicons/assets/favicon.ico'],
+  locales: [
+    { id: 'zh-CN', name: '中文' },
+    { id: 'en-US', name: 'English' },
+  ],
   mfsu: isWin ? undefined : {},
   npmClient: 'pnpm',
-  ssr: false,
+  // ssr: false,
+  ...(isProduction ? { ssr: { builder: 'webpack' } } : {}),
   styles: [
     `html, body { background: transparent;  }
 
@@ -66,5 +70,5 @@ export default defineConfig({
   }`,
   ],
   themeConfig,
-  title: 'Dumi Theme LobeHub',
+  title: 'Dumi Theme YuntiJS',
 });

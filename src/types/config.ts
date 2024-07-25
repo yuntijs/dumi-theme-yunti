@@ -1,4 +1,5 @@
-import type { FeaturesProps, FooterProps, HeroProps, LogoProps } from '@lobehub/ui';
+import type { FeaturesProps, FooterProps, HeroProps } from '@lobehub/ui';
+import type { IThemeConfig, SocialTypes } from 'dumi/dist/client/theme-api/types';
 import { FooterColumn } from 'rc-footer/es/column';
 
 import type { SiteCustomToken } from '@/styles/customToken';
@@ -21,11 +22,11 @@ export interface FooterConfig {
 }
 
 export interface SiteThemeConfig {
-  actions: HeroProps['actions'];
+  actions?: HeroProps['actions'];
   apiHeader?: ApiHeaderConfig | false;
   description?: string;
   docStyle?: 'block' | 'pure';
-  features: FeaturesProps['items'];
+  features?: FeaturesProps['items'];
   footer?: string | false;
   footerConfig?: FooterConfig;
   giscus?: {
@@ -36,16 +37,17 @@ export interface SiteThemeConfig {
   };
   hero?: HeroConfig | Record<string, HeroConfig>;
   hideHomeNav?: boolean;
-  logo?: string;
-  logoType?: LogoProps['type'];
+  // logo?: string;
+  // logoType?: LogoProps['type'];
   name?: string;
   siteToken?: SiteConfigToken;
   socialLinks?: {
-    discord?: `https://discord.gg/${string}`;
-    github?: string;
+    [key in SocialTypes | 'discord']?: string;
   };
   title?: string;
 }
+
+export interface AllSiteThemeConfig extends SiteThemeConfig, Omit<IThemeConfig, 'socialLinks'> {}
 
 export type SiteConfigToken = Partial<
   Pick<

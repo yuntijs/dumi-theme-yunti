@@ -1,1 +1,1 @@
-module.exports = require('@lobehub/lint').semanticRelease;
+module.exports = require('@yuntijs/lint').semanticRelease;

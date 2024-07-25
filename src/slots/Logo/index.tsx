@@ -1,4 +1,4 @@
-import { Avatar, Logo as SiteLogo } from '@lobehub/ui';
+import { Avatar } from '@lobehub/ui';
 import { Space } from 'antd';
 import { useResponsive } from 'antd-style';
 import { Link } from 'dumi';
@@ -12,25 +12,20 @@ import { useStyles } from './style';
 
 const Logo = memo(() => {
   const config = useSiteStore(themeConfig, isEqual);
-  const locale = useSiteStore((s) => s.locale, isEqual);
+  const locale = useSiteStore(s => s.locale, isEqual);
   const { styles, cx } = useStyles();
   const { mobile } = useResponsive();
 
   return (
     config && (
       <Link className={cx(styles)} to={'base' in locale ? locale.base : '/'}>
-        {config.logo ? (
-          <Space>
-            <Avatar avatar={config.logo} size={mobile ? 32 : 36} />
-            {config.name}
-          </Space>
-        ) : (
-          <SiteLogo
-            extra={config.name}
+        <Space>
+          <Avatar
+            avatar={config.logo || 'https://avatars.githubusercontent.com/u/148947838'}
             size={mobile ? 32 : 36}
-            type={config.logoType || 'combine'}
           />
-        )}
+          {config.name}
+        </Space>
       </Link>
     )
   );
