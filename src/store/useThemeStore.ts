@@ -8,7 +8,7 @@ export interface ThemeStore {
 export const useThemeStore = createWithEqualityFn<ThemeStore>()(
   persist(
     () => ({
-      themeMode: 'auto' as ThemeMode,
+      themeMode: 'light' as ThemeMode,
     }),
     { name: 'ANTD_STYLE_DOC_STORE' }
   )

@@ -6,112 +6,14 @@ import {
   logicalPropertiesLinter,
   parentSelectorLinter,
 } from '@ant-design/cssinjs';
-import { ConfigProvider, theme as antdTheme } from 'antd';
-import { ThemeMode } from 'antd-style';
-import { Outlet, usePrefersColor, useServerInsertedHTML } from 'dumi';
+import { Outlet, useServerInsertedHTML } from 'dumi';
 import type { FC } from 'react';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-
-import SiteContext, { SiteContextProps } from '@/slots/SiteContext';
+import React from 'react';
 
 import { useAdditionalThemeConfig } from '../hooks/useAdditionalThemeConfig';
 
-type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
-const RESPONSIVE_MOBILE = 768;
-const SITE_STATE_LOCALSTORAGE_KEY = 'dumi-theme-yunti-site-state';
-
-const defaultSiteState: SiteState = {
-  isMobile: false,
-  theme: ['light'],
-};
-const getAlgorithm = (themes: ThemeMode[] = []) =>
-  themes.map(theme => {
-    if (theme === 'dark') {
-      return antdTheme.darkAlgorithm;
-    }
-    return antdTheme.defaultAlgorithm;
-  });
-
-const isThemeDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
-const getSiteState = (siteState: any) => {
-  const localSiteState = siteState;
-  const isDark = isThemeDark(); // 系统默认主题
-  const theme = localSiteState?.theme || [];
-  const isAutoTheme = theme.includes('auto');
-  if (isAutoTheme) {
-    const nextTheme = theme.filter((item: string) => item !== 'auto');
-    nextTheme.push(isDark ? 'dark' : 'light');
-    localSiteState.theme = nextTheme;
-  }
-  return Object.assign(defaultSiteState, localSiteState);
-};
-
 const GlobalLayout: FC = () => {
-  const setPrefersColor = usePrefersColor()[2];
-  const { theme: configTheme, ssr, prefersColor } = useAdditionalThemeConfig();
-  const [{ theme, isMobile, direction }, setSiteState] = useState<SiteState>(defaultSiteState);
-
-  // 基于 localStorage 实现
-  const updateSiteConfig = useCallback((props: SiteState) => {
-    try {
-      const localSiteState = JSON.parse(
-        window.localStorage.getItem(SITE_STATE_LOCALSTORAGE_KEY) || '{}'
-      );
-      const nextLocalSiteState = Object.assign(localSiteState, props);
-      window.localStorage.setItem(SITE_STATE_LOCALSTORAGE_KEY, JSON.stringify(nextLocalSiteState));
-      setSiteState(prev => ({
-        ...prev,
-        ...props,
-      }));
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
-  }, []);
-
-  const updateMobileMode = useCallback(() => {
-    updateSiteConfig({
-      isMobile: window.innerWidth < RESPONSIVE_MOBILE,
-    });
-  }, [updateSiteConfig]);
-
-  useEffect(() => {
-    try {
-      const localSiteState = JSON.parse(
-        window.localStorage.getItem(SITE_STATE_LOCALSTORAGE_KEY) || '{}'
-      );
-      // 首次设置主题样式
-      if (!localSiteState?.theme) {
-        localSiteState.theme = [prefersColor.default];
-      }
-      const siteConfig = getSiteState(localSiteState);
-      updateSiteConfig(siteConfig);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
-  }, [prefersColor, updateSiteConfig]);
-
-  useEffect(() => {
-    updateMobileMode();
-    // set data-prefers-color
-    setPrefersColor((theme ?? []).includes('dark') ? 'dark' : 'light');
-    window.addEventListener('resize', updateMobileMode);
-    return () => {
-      window.removeEventListener('resize', updateMobileMode);
-    };
-  }, [theme, updateMobileMode, setPrefersColor]);
-
-  const siteContextValue = useMemo(
-    () => ({
-      direction,
-      isMobile: isMobile!,
-      theme: theme!,
-      updateSiteConfig,
-    }),
-    [isMobile, theme, direction, updateSiteConfig]
-  );
-
+  const { ssr } = useAdditionalThemeConfig();
   const [styleCache] = React.useState(() => createCache());
 
   useServerInsertedHTML(() => {
@@ -138,16 +40,9 @@ const GlobalLayout: FC = () => {
   });
 
   const BaseGlobalLayoutJSX = (
-    <SiteContext.Provider value={siteContextValue}>
-      <ConfigProvider
-        theme={{
-          ...configTheme,
-          algorithm: getAlgorithm(theme),
-        }}
-      >
-        <Outlet />
-      </ConfigProvider>
-    </SiteContext.Provider>
+    <>
+      <Outlet />
+    </>
   );
 
   const SSRGlobalLayoutJSX = (

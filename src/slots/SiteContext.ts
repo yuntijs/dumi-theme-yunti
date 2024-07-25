@@ -12,7 +12,7 @@ export interface SiteContextProps {
 const SiteContext = createContext<SiteContextProps>({
   direction: 'ltr',
   isMobile: false,
-  theme: ['light'],
+  theme: ['dark'],
   updateSiteConfig: () => {},
 });
 

@@ -1,3 +1,13 @@
+import {
+  useIntl,
+  useLocale,
+  useLocation,
+  useNavData,
+  useRouteMeta,
+  useSidebarData,
+  useSiteData,
+  useTabMeta,
+} from 'dumi';
 import { AtomAsset } from 'dumi-assets-types';
 import {
   ILocale,
@@ -9,7 +19,7 @@ import {
 } from 'dumi/dist/client/theme-api/types';
 import { PICKED_PKG_FIELDS } from 'dumi/dist/constants';
 import type { Location } from 'history';
-import { ComponentType } from 'react';
+import { ComponentType, useMemo } from 'react';
 
 import { AllSiteThemeConfig } from '@/types';
 
@@ -85,4 +95,39 @@ export const initialState: SiteStore = {
     // @ts-ignore
     themeConfig: {},
   },
+};
+
+export const useInitialState = (): SiteStore => {
+  const { themeConfig }: any = useSiteData();
+  const navData = useNavData();
+  const sidebar = useSidebarData();
+  const routeMeta = useRouteMeta();
+  const tabMeta = useTabMeta();
+  const location = useLocation();
+  const locale = useLocale();
+  const intl = useIntl();
+  const homeNav = useMemo(
+    () => ({
+      activePath: '/',
+      link: '/',
+      title: intl.formatMessage({ id: 'header.nav.home' }),
+    }),
+    [intl]
+  );
+  const newNavdata = themeConfig.hideHomeNav ? navData : [homeNav, ...navData];
+  // console.log('themeConfig', themeConfig);
+
+  return {
+    ...initialState,
+    locale: locale || initialState.locale,
+    location: location || initialState.location,
+    navData: newNavdata || initialState.navData,
+    routeMeta: routeMeta || initialState.routeMeta,
+    sidebar: sidebar || initialState.sidebar,
+    siteData: {
+      ...initialState.siteData,
+      themeConfig,
+    },
+    tabMeta: tabMeta || initialState.tabMeta,
+  };
 };

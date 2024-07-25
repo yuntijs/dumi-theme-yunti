@@ -13,8 +13,7 @@ import isEqual from 'fast-deep-equal';
 import React, { type DependencyList, type EffectCallback, useEffect, useMemo } from 'react';
 
 import { SiteStore, useSiteStore } from '@/store/useSiteStore';
-
-const isBrowser = typeof window !== 'undefined';
+import { isBrowser } from '@/utils';
 
 const SSRInit: Record<string, boolean> = {};
 
@@ -45,7 +44,7 @@ const useSyncState = <T extends keyof SiteStore>(
 ) => {
   const updater = updateMethod
     ? updateMethod
-    : (key: T, value: SiteStore[T]) => useSiteStore.setState({ [key]: value });
+    : (key: T, value: SiteStore[T]) => useSiteStore.setState?.({ [key]: value });
 
   // 如果是 Node 环境，直接更新一次 store
   // 但是为了避免多次更新 store，所以加一个标记
@@ -82,11 +81,11 @@ export const StoreUpdater = () => {
     const { setLoading, ...data } = siteData;
     const {
       siteData: { setLoading: _, ...previousData },
-    } = useSiteStore.getState();
+    } = useSiteStore.getState?.() || { siteData: {} };
 
     if (isEqual(data, previousData)) return;
 
-    useSiteStore.setState({ siteData });
+    useSiteStore.setState?.({ siteData });
   });
 
   useSyncState('sidebar', sidebar);
@@ -98,7 +97,7 @@ export const StoreUpdater = () => {
   useSyncState('navData', navData, () => {
     const data = siteData.themeConfig.hideHomeNav ? navData : [homeNav, ...navData];
 
-    useSiteStore.setState({ navData: data });
+    useSiteStore.setState?.({ navData: data });
   });
 
   return false;

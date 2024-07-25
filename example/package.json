@@ -3,6 +3,7 @@
   "scripts": {
     "build": "dumi build",
     "build:analyze": "ANALYZE=1 dumi build",
+    "build:no-compress": "COMPRESS=none dumi build",
     "dev": "dumi dev",
     "postinstall": "npm run setup",
     "preview": "dumi preview",
