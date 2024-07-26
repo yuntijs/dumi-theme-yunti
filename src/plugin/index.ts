@@ -7,9 +7,21 @@ import path from 'node:path';
 import { getHash } from './utils';
 
 const SSRPlugin = (api: IApi) => {
+  // api.describe({
+  //   key: '@',
+  // });
+
   api.describe({
-    key: '@',
+    key: `dumi-theme:${require('../../package.json').name}`,
   });
+  api.modifyDefaultConfig(memo =>
+    Object.assign(memo, {
+      cjs: {
+        output: 'dist/defineThemeConfig',
+        input: 'src/defineThemeConfig',
+      },
+    })
+  );
 
   if (!api.userConfig.ssr) return;
 

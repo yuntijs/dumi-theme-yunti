@@ -10,7 +10,7 @@ import Docs from '@/pages/Docs';
 import Home from '@/pages/Home';
 import Footer from '@/slots/Footer';
 import Header from '@/slots/Header';
-import Sidebar from '@/slots/Sidebar';
+import Sidebar from '@/slots/SideBar';
 import Toc from '@/slots/Toc';
 import { isHeroPageSel, siteTitleSel, tocAnchorItemSel, useSiteStore } from '@/store';
 
@@ -20,7 +20,7 @@ const DocumentLayout = memo(() => {
   const theme = useTheme();
   const { mobile, laptop } = useResponsive();
 
-  const { loading, page, siteTitle, noToc } = useSiteStore((s) => {
+  const { loading, page, siteTitle, noToc } = useSiteStore(s => {
     const isChanlogPage = s.location.pathname === '/changelog';
     const isHomePage = isHeroPageSel(s);
     let page;
@@ -41,7 +41,7 @@ const DocumentLayout = memo(() => {
     };
   }, shallow);
 
-  const fm = useSiteStore((s) => s.routeMeta.frontmatter, isEqual);
+  const fm = useSiteStore(s => s.routeMeta.frontmatter, isEqual);
 
   const hideSidebar = page !== 'docs' || mobile || fm.sidebar === false;
   const shouldHideToc = fm.toc === false || noToc;
@@ -65,7 +65,7 @@ const DocumentLayout = memo(() => {
         )}
       </Helmet>
     ),
-    [intl, fm, siteTitle, page],
+    [intl, fm, siteTitle, page]
   );
 
   // handle hash change or visit page hash after async chunk loaded
@@ -94,6 +94,8 @@ const DocumentLayout = memo(() => {
         footer={<Footer />}
         header={<Header />}
         headerHeight={mobile && page !== 'home' ? theme.headerHeight + 36 : theme.headerHeight}
+        // @Todo: workaround for sidebar
+        key={hideSidebar ? 'full' : 'no-sidebar'}
         sidebar={hideSidebar ? undefined : <Sidebar />}
         toc={hideToc ? undefined : <Toc />}
         tocWidth={hideToc ? 0 : theme.tocWidth}

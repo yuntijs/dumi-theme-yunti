@@ -1,5 +1,5 @@
 import { Icon } from '@lobehub/ui';
-import { Link } from 'dumi';
+import { Link, useIntl } from 'dumi';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { memo, useMemo } from 'react';
 import { Flexbox } from 'react-layout-kit';
@@ -14,26 +14,31 @@ interface LinkerProps {
 
 const Linker = memo<LinkerProps>(({ title, link, type }) => {
   const { styles, cx } = useStyles();
+  const intl = useIntl();
   const navContent = useMemo(() => {
     switch (type) {
       case 'prev': {
         return (
           <>
             <Icon icon={ArrowLeft} />
-            <span style={{ lineHeight: 1 }}>Previous</span>
+            <span style={{ lineHeight: 1 }}>
+              {intl.formatMessage({ id: 'content.footer.actions.previous' })}
+            </span>
           </>
         );
       }
       case 'next': {
         return (
           <>
-            <span style={{ lineHeight: 1 }}>Next</span>
+            <span style={{ lineHeight: 1 }}>
+              {intl.formatMessage({ id: 'content.footer.actions.next' })}
+            </span>
             <Icon icon={ArrowRight} />
           </>
         );
       }
     }
-  }, [type]);
+  }, [intl, type]);
 
   return (
     <Link to={link}>

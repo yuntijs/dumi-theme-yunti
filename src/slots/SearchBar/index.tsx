@@ -1,5 +1,5 @@
 import { SearchBar as Input } from '@lobehub/ui';
-import { useSiteSearch } from 'dumi';
+import { useIntl, useSiteSearch } from 'dumi';
 import SearchResult from 'dumi/theme-default/slots/SearchResult';
 import { memo, useState } from 'react';
 
@@ -9,6 +9,7 @@ const SearchBar = memo(() => {
   const { styles } = useStyles();
   const [focusing, setFocusing] = useState(false);
   const { keywords, setKeywords, result, loading } = useSiteSearch();
+  const intl = useIntl();
 
   return (
     <div className={styles.container}>
@@ -21,6 +22,7 @@ const SearchBar = memo(() => {
         }}
         onChange={(e: any) => setKeywords(e.target.value)}
         onFocus={() => setFocusing(true)}
+        placeholder={intl.formatMessage({ id: 'header.search.placeholder' })}
         spotlight
       />
 

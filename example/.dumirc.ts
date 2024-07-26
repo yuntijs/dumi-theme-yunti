@@ -2,11 +2,13 @@ import { defineConfig } from 'dumi';
 import path from 'node:path';
 
 import { homepage, name } from '../package.json';
+import { defineThemeConfig } from '../src/defineThemeConfig';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isWin = process.platform === 'win32';
 
-const themeConfig = {
+const themeConfig = defineThemeConfig({
+  logo: 'https://lingwu.cn/v1/gpts/images/c6978e9c-d991-4cd4-a74b-b5189cdf647b',
   actions: [
     {
       icon: 'Github',
@@ -40,7 +42,20 @@ const themeConfig = {
     github: homepage,
   },
   title: 'Dumi Theme YuntiJS',
-};
+  sidebarGroupModePath: ['/config', '/components'],
+  nav: {
+    'zh-CN': [
+      { title: 'Components', link: '/components/example' },
+      { title: '分组示例', link: '/config/base' },
+      { title: '折叠示例', link: '/demo/secondary-sidebar-colors' },
+      { title: 'Changelog', link: '/changelog' },
+    ],
+    'en-US': [
+      { title: 'Group Demo', link: '/config/base-en' },
+      { title: 'Collapse Demo', link: '/demo/secondary-sidebar-colors-en' },
+    ],
+  },
+});
 
 export default defineConfig({
   alias: {
@@ -55,12 +70,15 @@ export default defineConfig({
   },
   favicons: ['https://avatars.githubusercontent.com/u/148947838?s=64&v=4'],
   locales: [
-    { id: 'zh-CN', name: '中文' },
-    { id: 'en-US', name: 'English' },
+    { id: 'zh-CN', name: '中文', suffix: '' },
+    { id: 'en-US', name: 'English', suffix: '-en' },
   ],
   mfsu: isWin ? undefined : {},
   npmClient: 'pnpm',
-  // ssr: false,
+  exportStatic: {
+    // 忽略预渲染失败的错误
+    ignorePreRenderError: true,
+  },
   ...(isProduction ? { ssr: { builder: 'webpack' } } : {}),
   styles: [
     `html, body { background: transparent;  }
