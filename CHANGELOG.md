@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.1.1](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.1.0...v1.1.1)
+
+<sup>Released on **2024-07-26**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: SideBar => Siderbar.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: SideBar => Siderbar ([db5bde7](https://github.com/yuntijs/dumi-theme-yunti/commit/db5bde7))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version 1.1.0](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.0.1...v1.1.0)
 
 <sup>Released on **2024-07-26**</sup>
