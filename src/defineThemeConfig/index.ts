@@ -5,8 +5,6 @@ import type { AllSiteThemeConfig } from '../types';
  * @param {ThemeConfig} config theme config
  * @returns {ThemeConfig}
  */
-export function defineThemeConfig(
+export const defineThemeConfig = (
   config: Partial<AllSiteThemeConfig>
-): Partial<AllSiteThemeConfig> {
-  return config;
-}
+): Partial<AllSiteThemeConfig> => config;

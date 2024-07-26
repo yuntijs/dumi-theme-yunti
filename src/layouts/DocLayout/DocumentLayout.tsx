@@ -10,7 +10,7 @@ import Docs from '@/pages/Docs';
 import Home from '@/pages/Home';
 import Footer from '@/slots/Footer';
 import Header from '@/slots/Header';
-import Sidebar from '@/slots/SideBar';
+import Sidebar from '@/slots/Sidebar';
 import Toc from '@/slots/Toc';
 import { isHeroPageSel, siteTitleSel, tocAnchorItemSel, useSiteStore } from '@/store';
 

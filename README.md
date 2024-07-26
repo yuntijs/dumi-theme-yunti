@@ -93,11 +93,9 @@ interface SiteThemeConfig {
   logoType?: LogoProps['type'];
   name?: string;
   siteToken?: SiteConfigToken;
-  // socialLinks?: {
-  //   discord?: `https://discord.gg/${string}`;
-  //   github?: string;
-  // };
   title?: string;
+  /** sidebar group 模式路由 */
+  sidebarGroupModePath?: true | SidebarGroupModePathItem[];
 }
 ```
 
