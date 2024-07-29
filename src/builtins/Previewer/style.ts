@@ -1,6 +1,8 @@
 import { createStyles } from 'antd-style';
 import { rgba } from 'polished';
 
+import { resetStyle } from './style-reset';
+
 export const useStyles = createStyles(({ css, token, prefixCls }) => {
   return {
     center: css`
@@ -11,6 +13,7 @@ export const useStyles = createStyles(({ css, token, prefixCls }) => {
       }
     `,
     container: css`
+      ${resetStyle}
       .dumi-default-previewer {
         overflow: hidden;
         display: flex;

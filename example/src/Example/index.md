@@ -11,3 +11,11 @@ description: This is an doc example
 ## CustomSize
 
 <code src="./demos/CustomSize.tsx" nopadding></code>
+
+## Breadcrumb
+
+<code src="./demos/Breadcrumb.tsx" nopadding></code>
+
+## Table
+
+<code src="./demos/Table.tsx" center></code>

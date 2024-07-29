@@ -6,13 +6,16 @@ import {
   logicalPropertiesLinter,
   parentSelectorLinter,
 } from '@ant-design/cssinjs';
-import { Outlet, useServerInsertedHTML } from 'dumi';
+import { App } from 'antd';
+import { useLocation, useOutlet, useServerInsertedHTML } from 'dumi';
 import type { FC } from 'react';
 import React from 'react';
 
 import { useAdditionalThemeConfig } from '../hooks/useAdditionalThemeConfig';
 
 const GlobalLayout: FC = () => {
+  const { pathname } = useLocation();
+  const outlet = useOutlet();
   const { ssr } = useAdditionalThemeConfig();
   const [styleCache] = React.useState(() => createCache());
 
@@ -39,25 +42,28 @@ const GlobalLayout: FC = () => {
     );
   });
 
-  const BaseGlobalLayoutJSX = (
-    <>
-      <Outlet />
-    </>
-  );
+  const demoPage = pathname.startsWith('/~demos');
 
-  const SSRGlobalLayoutJSX = (
+  // ============================ Render ============================
+  let content: React.ReactNode = outlet;
+
+  // Demo page should not contain App component
+  if (!demoPage) {
+    content = <App>{outlet}</App>;
+  }
+
+  if (ssr) {
+    (global as any).styleCache = styleCache;
+  }
+
+  return (
     <StyleProvider
       cache={styleCache}
       linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
     >
-      {BaseGlobalLayoutJSX}
+      {content}
     </StyleProvider>
   );
-  if (ssr) {
-    (global as any).styleCache = styleCache;
-    return SSRGlobalLayoutJSX;
-  }
-  return BaseGlobalLayoutJSX;
 };
 
 export default GlobalLayout;
