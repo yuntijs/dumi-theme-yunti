@@ -4,7 +4,7 @@
 
 <h1>Dumi Theme YuntiJS</h1>
 
-dumi-theme-yunti is a documentation site theme package designed for `Dumi 2`. <br/>It provides a more beautiful and user-friendly development and reading experience based on `@lobehub/ui`
+dumi-theme-yunti is a documentation site theme package designed for `Dumi 2`. <br/>It provides a more beautiful and user-friendly development and reading experience based on [dumi-theme-lobehub](https://github.com/lobehub/dumi-theme-lobehub) and [dumi-theme-antd](https://github.com/KuangPF/dumi-theme-antd).
 
 [![][npm-release-shield]][npm-release-link]
 [![][github-releasedate-shield]][github-releasedate-link]
@@ -47,6 +47,7 @@ dumi-theme-yunti is a documentation site theme package designed for `Dumi 2`. <b
 - [x] 🪄 **Exquisite Syntax Highlighting:** This theme package provides accurate and beautiful syntax highlighting. It utilizes modern syntax highlighting libraries like Shiki and Prism, and offers a rich set of code highlighting schemes to enhance code readability.
 - [x] 🧩 **Flexible Component Reusability:** This theme package provides high flexibility for customizing local themes. It exports premium components from the theme package, which can be reused as independent modules. Developers can freely combine and use these components in the dumi local theme package.
 - [x] 📱 **Well-Adapted for Mobile Devices:** This theme package is well-adapted for mobile devices. With the flexible style solution based on CSSinJS, multiple layout options are easily implemented. Users can enjoy a consistent and smooth experience across different devices.
+- [ ] 🧭 **SSR Enhancement and Menu Nesting:** Refer to antd source code to optimize SSR and menu nesting.
 
 <div align="right">
 
@@ -119,8 +120,11 @@ Or clone it for local development:
 ```bash
 $ git clone https://github.com/yuntijs/dumi-theme-yunti.git
 $ cd dumi-theme-yunti
-$ bun install
-$ bun dev
+$ pnpm install
+# run theme dev
+$ pnpm dev
+# run example dev
+$ pnpm docs:dev
 ```
 
 <div align="right">

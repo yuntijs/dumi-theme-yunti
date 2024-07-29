@@ -49,6 +49,7 @@ const themeConfig = defineThemeConfig({
       { title: '分组示例', link: '/config/base' },
       { title: '折叠示例', link: '/demo/secondary-sidebar-colors' },
       { title: 'Changelog', link: '/changelog' },
+      { title: 'Yunti UI', link: 'https://yuntijs.github.io/yunti-ui/' },
     ],
     'en-US': [
       { title: 'Group Demo', link: '/config/base-en' },

@@ -1,7 +1,8 @@
-import { TabsNav } from '@lobehub/ui';
+import { Icon, TabsNav } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
 import { Link, history, useLocation } from 'dumi';
 import NavbarExtra from 'dumi/theme-default/slots/NavbarExtra';
+import { ExternalLink } from 'lucide-react';
 import { memo } from 'react';
 import { shallow } from 'zustand/shallow';
 
@@ -12,7 +13,18 @@ const useStyles = createStyles(({ css, stylish, token, responsive, prefixCls }) 
   return {
     link: css`
       ${stylish.resetLinkColor}
-      padding: 6px 0;
+      display: inline-flex;
+      align-items: center;
+
+      & > .lint-text {
+        ${stylish.resetLinkColor}
+      }
+
+      & > .anticon {
+        margin-left: ${token.marginXS}px;
+        font-size: ${token.fontSizeSM}px;
+        color: ${token.colorTextTertiary};
+      }
     `,
     tabs: css`
       .${prefixCls}-tabs-tab-active a {
@@ -24,6 +36,9 @@ const useStyles = createStyles(({ css, stylish, token, responsive, prefixCls }) 
     `,
   };
 });
+
+const linkToKey = (path?: string) => (path ?? '').split('/').slice(0, 2).join('/');
+
 const Navbar = memo(() => {
   const { styles } = useStyles();
   const { pathname } = useLocation();
@@ -34,29 +49,46 @@ const Navbar = memo(() => {
   return (
     <>
       <TabsNav
-        // activeKey={activePath}
         activeKey={activeMenuItem}
         className={styles.tabs}
         items={nav.map(item => {
-          const linkKeyValue =
-            item.activePath || (item.link ?? '').split('/').slice(0, 2).join('/');
+          const linkKeyValue = item.activePath || linkToKey(item.link);
           return {
             key: isExternalLinks(item.link) ? item.link! : linkKeyValue,
             label: isExternalLinks(item.link) ? (
-              <a className={styles.link} href={String(item.link)} rel="noreferrer" target="_blank">
-                {item.title}
+              <a
+                className={styles.link}
+                href={String(item.link)}
+                onClick={e => e.preventDefault()}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <span className="lint-text">{item.title}</span> <Icon icon={ExternalLink} />
               </a>
             ) : (
-              <Link className={styles.link} to={String(item.link)}>
+              <Link
+                className={styles.link}
+                onClick={e => e.preventDefault()}
+                to={String(item.link)}
+              >
                 {item.title}
               </Link>
             ),
           };
         })}
-        onChange={path => {
-          const url = nav.find(index => index.activePath === path || index.link === path)?.link;
+        onTabClick={activeKey => {
+          const url = nav.find(
+            index =>
+              index.activePath === activeKey ||
+              index.link === activeKey ||
+              linkToKey(index.link) === activeKey
+          )?.link;
 
           if (!url) return;
+
+          if (isExternalLinks(url)) {
+            return window.open(url);
+          }
 
           history.push(url);
         }}
