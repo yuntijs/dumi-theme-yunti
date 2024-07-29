@@ -2,6 +2,23 @@
 
 # Changelog
 
+### [Version 1.1.3](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.1.2...v1.1.3)
+
+<sup>Released on **2024-07-29**</sup>
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.1.2](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.1.1...v1.1.2)
 
 <sup>Released on **2024-07-29**</sup>
