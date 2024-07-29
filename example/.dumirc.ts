@@ -69,6 +69,9 @@ export default defineConfig({
   define: {
     'process.env': process.env,
   },
+  base: isProduction ? '/dumi-theme-yunti/' : '/',
+  publicPath: '/dumi-theme-yunti/',
+  outputPath: './dist/dumi-theme-yunti/',
   favicons: ['https://avatars.githubusercontent.com/u/148947838?s=64&v=4'],
   locales: [
     { id: 'zh-CN', name: '中文', suffix: '' },
