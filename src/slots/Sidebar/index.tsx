@@ -1,11 +1,25 @@
 import { ConfigProvider, Menu, theme as antTheme } from 'antd';
-import React from 'react';
+import { useLocation } from 'dumi';
+import React, { useMemo } from 'react';
+
+import { useAdditionalThemeConfig } from '@/hooks/useAdditionalThemeConfig';
 
 import { useMenu } from '../../hooks/useMenu';
 import { useStyles } from './style';
 
 const Sidebar: React.FC = () => {
-  const { styles } = useStyles();
+  const { pathname } = useLocation();
+  const { sidebarGroupModePath } = useAdditionalThemeConfig();
+  const isSideBarGroupMode = useMemo(
+    () =>
+      sidebarGroupModePath === true
+        ? true
+        : (sidebarGroupModePath ?? []).some(rule => {
+            return pathname.startsWith(rule);
+          }),
+    [pathname, sidebarGroupModePath]
+  );
+  const { styles } = useStyles({ isSideBarGroupMode });
   const { token } = antTheme.useToken();
   const [menuItems, selectedKey, openKeys] = useMenu();
 

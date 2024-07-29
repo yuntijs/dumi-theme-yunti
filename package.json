@@ -1,13 +1,13 @@
 {
   "name": "dumi-theme-yunti",
   "version": "1.1.2",
-  "description": "dumi-theme-yunti is a documentation site theme package designed for dumi2. It provides a more beautiful and user-friendly development and reading experience based on @lobehub/ui",
+  "description": "dumi-theme-yunti is a documentation site theme package designed for dumi2. It provides a more beautiful and user-friendly development and reading experience based on dumi-theme-lobehub and dumi-theme-antd",
   "keywords": [
     "yuntijs",
     "dumi",
-    "dumi theme"
+    "dumi-theme"
   ],
-  "homepage": "https://github.com/yuntijs/dumi-theme-yunti",
+  "homepage": "https://yuntijs.github.io/dumi-theme-yunti",
   "bugs": {
     "url": "https://github.com/yuntijs/dumi-theme-yunti/issues/new"
   },
