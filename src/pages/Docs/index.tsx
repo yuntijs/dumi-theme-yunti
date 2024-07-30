@@ -1,3 +1,4 @@
+import { StyleProvider } from '@ant-design/cssinjs';
 import { Giscus } from '@lobehub/ui';
 import { useResponsive } from 'antd-style';
 import { useLocation, useOutlet } from 'dumi';
@@ -44,7 +45,7 @@ const Documents = memo(() => {
     [giscus, location.pathname]
   );
   return (
-    <>
+    <StyleProvider hashPriority="high">
       <div className={styles.background} />
       <Center className={styles.content} style={{ marginBottom: 48, padding: mobile ? 0 : 24 }}>
         {isApiPage ? (
@@ -57,7 +58,7 @@ const Documents = memo(() => {
           {giscus && <Comment />}
         </Content>
       </Center>
-    </>
+    </StyleProvider>
   );
 });
 

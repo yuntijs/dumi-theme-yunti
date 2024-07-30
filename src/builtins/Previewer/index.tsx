@@ -1,4 +1,3 @@
-import { StyleProvider } from '@ant-design/cssinjs';
 import { IPreviewerProps } from 'dumi/dist/client/theme-api/types';
 import Previewer from 'dumi/theme-default/builtins/Previewer';
 
@@ -23,9 +22,7 @@ export default ({ center, codePlacement, nopadding, pure, ...props }: PreviewerP
         styles[codePlacement as 'left' | 'right' | 'top']
       )}
     >
-      <StyleProvider hashPriority="high">
-        <Previewer {...props} />
-      </StyleProvider>
+      <Previewer {...props} />
     </div>
   );
 };

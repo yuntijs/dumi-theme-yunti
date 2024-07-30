@@ -87,6 +87,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitest/coverage-v8": "^1.6.0",
     "@yuntijs/lint": "^1.7.1",
+    "antd": "^5.19.4",
     "antd-style": "^3.6.2",
     "clean-pkg-json": "^1.2.0",
     "commitlint": "^18",
