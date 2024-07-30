@@ -1,22 +1,46 @@
 import { ActionIcon, ActionIconProps, StoryBook, useControls, useCreateStore } from '@lobehub/ui';
 import { folder } from 'leva';
-import * as LucideIcon from 'lucide-react';
+import { Settings } from 'lucide-react';
 import React from 'react';
 
 export default () => {
   const store = useCreateStore();
+  const size: ActionIconProps['size'] | any = useControls(
+    {
+      size: folder({
+        blockSize: {
+          max: 100,
+          min: 8,
+          step: 4,
+          value: 40,
+        },
+        borderRadius: {
+          max: 50,
+          min: 2,
+          step: 2,
+          value: 10,
+        },
+        fontSize: {
+          max: 100,
+          min: 8,
+          step: 4,
+          value: 28,
+        },
+        strokeWidth: {
+          max: 2,
+          min: 1,
+          step: 0.5,
+          value: 2,
+        },
+      }),
+    },
+    { store }
+  );
+
   const control: ActionIconProps | any = useControls(
     {
       active: false,
       glass: false,
-      icon: {
-        options: LucideIcon,
-        value: LucideIcon.Settings,
-      },
-      size: {
-        options: ['large', 'normal', 'small'],
-        value: 'large',
-      },
       tooltip: folder({
         arrow: false,
         loading: false,
@@ -38,7 +62,7 @@ export default () => {
           value: 'top',
         },
         spotlight: false,
-        title: '',
+        title: 'Setting',
       }),
     },
     { store }
@@ -46,7 +70,7 @@ export default () => {
 
   return (
     <StoryBook levaStore={store}>
-      <ActionIcon {...control} />
+      <ActionIcon icon={Settings} size={size} {...control} />
     </StoryBook>
   );
 };

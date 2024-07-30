@@ -5,6 +5,7 @@ import { homepage, name } from '../package.json';
 import { defineThemeConfig } from '../src/defineThemeConfig';
 
 const isProduction = process.env.NODE_ENV === 'production';
+const isPreview = process.env.PREVIEW === 'true';
 const isWin = process.platform === 'win32';
 
 const themeConfig = defineThemeConfig({
@@ -58,6 +59,8 @@ const themeConfig = defineThemeConfig({
   },
 });
 
+const base = isProduction && !isPreview ? '/dumi-theme-yunti/' : '/';
+
 export default defineConfig({
   alias: {
     '@': path.resolve(__dirname, '../src'),
@@ -69,9 +72,9 @@ export default defineConfig({
   define: {
     'process.env': process.env,
   },
-  base: isProduction ? '/dumi-theme-yunti/' : '/',
-  publicPath: '/dumi-theme-yunti/',
-  outputPath: './dist/dumi-theme-yunti/',
+  base,
+  publicPath: base,
+  outputPath: `./dist${base}`,
   favicons: ['https://avatars.githubusercontent.com/u/148947838?s=64&v=4'],
   locales: [
     { id: 'zh-CN', name: '中文', suffix: '' },

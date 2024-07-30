@@ -1,6 +1,7 @@
 {
   "name": "dumi-theme-yunti-example",
   "scripts": {
+    "bp": "PREVIEW=true dumi build && dumi preview",
     "build": "dumi build",
     "build:analyze": "ANALYZE=1 dumi build",
     "build:no-compress": "COMPRESS=none dumi build",
@@ -8,5 +9,8 @@
     "postinstall": "npm run setup",
     "preview": "dumi preview",
     "setup": "dumi setup"
+  },
+  "dependencies": {
+    "@yuntijs/ui": "^1.0.0-beta.54"
   }
 }
