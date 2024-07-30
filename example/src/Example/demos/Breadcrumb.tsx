@@ -1,6 +1,6 @@
 import { StoryBook, useControls, useCreateStore } from '@lobehub/ui';
-import type { BreadcrumbProps } from 'antd';
-import { Breadcrumb } from 'antd';
+import type { BreadcrumbProps } from '@yuntijs/ui';
+import { Breadcrumb } from '@yuntijs/ui';
 import React from 'react';
 
 const items = [

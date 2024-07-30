@@ -23,3 +23,7 @@ description: This is an doc example
 ## Form
 
 <code src="./demos/Form.tsx"></code>
+
+## Typography
+
+<code src="./demos/Typography.tsx"></code>
