@@ -32,9 +32,6 @@ importers:
       chalk:
         specifier: ^4.1.2
         version: 4.1.2
-      dumi:
-        specifier: ^2.4
-        version: 2.4.6(@babel/core@7.24.9)(@swc/helpers@0.5.1)(@types/node@20.14.12)(@types/react@18.3.3)(eslint@8.57.0)(lightningcss@1.22.1)(prettier@3.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@3.29.4)(stylelint@15.11.0(typescript@5.5.4))(terser@5.31.3)(type-fest@4.23.0)(typescript@5.5.4)(webpack@5.93.0)
       fast-deep-equal:
         specifier: ^3.1.3
         version: 3.1.3
@@ -93,6 +90,9 @@ importers:
       commitlint:
         specifier: ^18
         version: 18.6.1(@types/node@20.14.12)(typescript@5.5.4)
+      dumi:
+        specifier: ^2.4.7
+        version: 2.4.7(@babel/core@7.24.9)(@swc/helpers@0.5.1)(@types/node@20.14.12)(@types/react@18.3.3)(eslint@8.57.0)(lightningcss@1.22.1)(prettier@3.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@3.29.4)(stylelint@15.11.0(typescript@5.5.4))(terser@5.31.3)(type-fest@4.23.0)(typescript@5.5.4)(webpack@5.93.0)
       dumi-assets-types:
         specifier: ^2.3.0
         version: 2.3.0
@@ -4148,8 +4148,8 @@ packages:
   dumi-assets-types@2.3.0:
     resolution: {integrity: sha512-mM6UoGTgTNoo8lA4dwaIwoeSGT+4PeQeiFylr2+kCB5z3/7NEf7lIM4tqrAsEyzecE/HX0+w7Z78hnFZQ9k5vQ==}
 
-  dumi@2.4.6:
-    resolution: {integrity: sha512-ly8Z8CwKoNvqqqzCXLtXPv7MECU3HgtGuc4r80FQ2O2/1IVmzI7gREfGGebohSnvuZTpGQx00XYFD2qbBuaziA==}
+  dumi@2.4.7:
+    resolution: {integrity: sha512-JkBq0/YxVjQkI4CA0dV8LucZ5xeTryXB+yjuMAFyK5jGEqbA7OFYkBXLfvaX5Fv960xkmB2xqp1K8YATGejxcQ==}
     hasBin: true
     peerDependencies:
       react: '>=16.8'
@@ -15357,7 +15357,7 @@ snapshots:
 
   dumi-assets-types@2.3.0: {}
 
-  dumi@2.4.6(@babel/core@7.24.9)(@swc/helpers@0.5.1)(@types/node@20.14.12)(@types/react@18.3.3)(eslint@8.57.0)(lightningcss@1.22.1)(prettier@3.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@3.29.4)(stylelint@15.11.0(typescript@5.5.4))(terser@5.31.3)(type-fest@4.23.0)(typescript@5.5.4)(webpack@5.93.0):
+  dumi@2.4.7(@babel/core@7.24.9)(@swc/helpers@0.5.1)(@types/node@20.14.12)(@types/react@18.3.3)(eslint@8.57.0)(lightningcss@1.22.1)(prettier@3.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@3.29.4)(stylelint@15.11.0(typescript@5.5.4))(terser@5.31.3)(type-fest@4.23.0)(typescript@5.5.4)(webpack@5.93.0):
     dependencies:
       '@ant-design/icons-svg': 4.4.2
       '@makotot/ghostui': 2.0.0(react@18.3.1)

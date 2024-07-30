@@ -1,3 +1,4 @@
+// import { isBrowser } from '@/utils';
 import {
   StyleProvider,
   createCache,
@@ -11,12 +12,9 @@ import { useLocation, useOutlet, useServerInsertedHTML } from 'dumi';
 import type { FC } from 'react';
 import React from 'react';
 
-import { useAdditionalThemeConfig } from '../hooks/useAdditionalThemeConfig';
-
 const GlobalLayout: FC = () => {
   const { pathname } = useLocation();
   const outlet = useOutlet();
-  const { ssr } = useAdditionalThemeConfig();
   const [styleCache] = React.useState(() => createCache());
 
   useServerInsertedHTML(() => {
@@ -52,9 +50,9 @@ const GlobalLayout: FC = () => {
     content = <App>{outlet}</App>;
   }
 
-  if (ssr) {
-    (global as any).styleCache = styleCache;
-  }
+  // if (!isBrowser) {
+  //   (global as any).styleCache = styleCache;
+  // }
 
   return (
     <StyleProvider

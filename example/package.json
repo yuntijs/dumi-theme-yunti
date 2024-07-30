@@ -1,7 +1,7 @@
 {
   "name": "dumi-theme-yunti-example",
   "scripts": {
-    "bp": "PREVIEW=true dumi build && dumi preview",
+    "bp": "PREVIEW=true npm run build:no-compress && npm run preview",
     "build": "dumi build",
     "build:analyze": "ANALYZE=1 dumi build",
     "build:no-compress": "COMPRESS=none dumi build",
