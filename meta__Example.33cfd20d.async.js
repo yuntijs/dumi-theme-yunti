@@ -1,6 +1,6 @@
-(self.webpackChunkdumi_theme_yunti_example=self.webpackChunkdumi_theme_yunti_example||[]).push([[9554],{56142:function(d,t,n){var c={"./ar.json":[42629,2629],"./be.json":[97130,7130],"./cs.json":[19151,9151],"./de.json":[1490,1490],"./en.json":[52729,2729],"./es.json":[74738,4738],"./fa.json":[74117,4117],"./fi.json":[77722,7722],"./fr.json":[21633,1633],"./hi.json":[34125,4125],"./it.json":[46612,6612],"./ja.json":[36042,6042],"./ko.json":[4019,4019],"./nl.json":[34094,4094],"./pl.json":[38127,8127],"./pt.json":[55982,5982],"./ru.json":[88616,8616],"./sa.json":[58260,8260],"./tr.json":[42772,2772],"./uk.json":[98349,8349],"./vi.json":[47627,7627],"./zh.json":[18061,8061]};function o(p){if(!n.o(c,p))return Promise.resolve().then(function(){var g=new Error("Cannot find module '"+p+"'");throw g.code="MODULE_NOT_FOUND",g});var m=c[p],r=m[0];return n.e(m[1]).then(function(){return n.t(r,19)})}o.keys=function(){return Object.keys(c)},o.id=56142,d.exports=o},87802:function(d,t,n){"use strict";n.r(t),n.d(t,{demos:function(){return h}});var c=n(29008),o=n.n(c),p=n(70958),m=n.n(p),r=n(92379),g=n(24780),h={"src-example-demo-demos":{component:r.memo(r.lazy(function(){return Promise.all([n.e(1051),n.e(22),n.e(3204),n.e(2433)]).then(n.bind(n,65063))})),asset:{type:"BLOCK",id:"src-example-demo-demos",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(25639).Z},"@lobehub/ui":{type:"NPM",value:"1.146.9"},leva:{type:"NPM",value:"0.9.35"},"lucide-react":{type:"NPM",value:"0.414.0"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@lobehub/ui":n(41337),leva:n(75521),"lucide-react":n(37105),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function i(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},i)}));function l(){return s.apply(this,arguments)}return l}()}},"src-example-demo-breadcrumb":{component:r.memo(r.lazy(function(){return Promise.all([n.e(1051),n.e(22),n.e(3204),n.e(2433)]).then(n.bind(n,92054))})),asset:{type:"BLOCK",id:"src-example-demo-breadcrumb",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(2530).Z},"@lobehub/ui":{type:"NPM",value:"1.146.9"},antd:{type:"NPM",value:"5.19.3"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@lobehub/ui":n(41337),antd:n(28793),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function i(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},i)}));function l(){return s.apply(this,arguments)}return l}()}},"src-example-demo-procard":{component:r.memo(r.lazy(function(){return Promise.all([n.e(1051),n.e(22),n.e(3204),n.e(2433)]).then(n.bind(n,46789))})),asset:{type:"BLOCK",id:"src-example-demo-procard",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(82991).Z},"@yuntijs/ui":{type:"NPM",value:"1.0.0-beta.54"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@yuntijs/ui":n(16231),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function i(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},i)}));function l(){return s.apply(this,arguments)}return l}()}},"src-example-demo-table":{component:r.memo(r.lazy(function(){return Promise.all([n.e(1051),n.e(22),n.e(3204),n.e(2433)]).then(n.bind(n,95510))})),asset:{type:"BLOCK",id:"src-example-demo-table",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(49353).Z},"@yuntijs/ui":{type:"NPM",value:"1.0.0-beta.54"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@yuntijs/ui":n(16231),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function i(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},i)}));function l(){return s.apply(this,arguments)}return l}()}},"src-example-demo-form":{component:r.memo(r.lazy(function(){return Promise.all([n.e(1051),n.e(22),n.e(3204),n.e(2433)]).then(n.bind(n,47730))})),asset:{type:"BLOCK",id:"src-example-demo-form",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(73894).Z},"@yuntijs/ui":{type:"NPM",value:"1.0.0-beta.54"},"lucide-react":{type:"NPM",value:"0.414.0"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@yuntijs/ui":n(16231),"lucide-react":n(37105),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function i(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},i)}));function l(){return s.apply(this,arguments)}return l}()}}}},40456:function(d,t,n){"use strict";n.r(t),n.d(t,{texts:function(){return o}});var c=n(24780);const o=[]},2530:function(d,t){"use strict";t.Z=`import { StoryBook, useControls, useCreateStore } from '@lobehub/ui';
-import type { BreadcrumbProps } from 'antd';
-import { Breadcrumb } from 'antd';
+(self.webpackChunkdumi_theme_yunti_example=self.webpackChunkdumi_theme_yunti_example||[]).push([[9554],{70121:function(d,t,n){var c={"./ar.json":[42629,2629],"./be.json":[97130,7130],"./cs.json":[19151,9151],"./de.json":[1490,1490],"./en.json":[52729,2729],"./es.json":[74738,4738],"./fa.json":[74117,4117],"./fi.json":[77722,7722],"./fr.json":[21633,1633],"./hi.json":[34125,4125],"./it.json":[46612,6612],"./ja.json":[36042,6042],"./ko.json":[4019,4019],"./nl.json":[34094,4094],"./pl.json":[38127,8127],"./pt.json":[55982,5982],"./ru.json":[88616,8616],"./sa.json":[58260,8260],"./tr.json":[42772,2772],"./uk.json":[98349,8349],"./vi.json":[47627,7627],"./zh.json":[18061,8061]};function o(p){if(!n.o(c,p))return Promise.resolve().then(function(){var g=new Error("Cannot find module '"+p+"'");throw g.code="MODULE_NOT_FOUND",g});var m=c[p],r=m[0];return n.e(m[1]).then(function(){return n.t(r,19)})}o.keys=function(){return Object.keys(c)},o.id=70121,d.exports=o},87802:function(d,t,n){"use strict";n.r(t),n.d(t,{demos:function(){return h}});var c=n(29008),o=n.n(c),p=n(70958),m=n.n(p),r=n(92379),g=n(24780),h={"src-example-demo-demos":{component:r.memo(r.lazy(function(){return Promise.all([n.e(6109),n.e(6640),n.e(8413),n.e(2433)]).then(n.bind(n,65063))})),asset:{type:"BLOCK",id:"src-example-demo-demos",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(25639).Z},"@lobehub/ui":{type:"NPM",value:"1.146.9"},leva:{type:"NPM",value:"0.9.35"},"lucide-react":{type:"NPM",value:"0.414.0"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@lobehub/ui":n(90348),leva:n(75521),"lucide-react":n(37105),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function l(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},l)}));function i(){return s.apply(this,arguments)}return i}()}},"src-example-demo-breadcrumb":{component:r.memo(r.lazy(function(){return Promise.all([n.e(6109),n.e(6640),n.e(8413),n.e(2433)]).then(n.bind(n,92054))})),asset:{type:"BLOCK",id:"src-example-demo-breadcrumb",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(2530).Z},"@lobehub/ui":{type:"NPM",value:"1.146.9"},"@yuntijs/ui":{type:"NPM",value:"1.0.0-beta.54"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@lobehub/ui":n(90348),"@yuntijs/ui":n(49391),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function l(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},l)}));function i(){return s.apply(this,arguments)}return i}()}},"src-example-demo-procard":{component:r.memo(r.lazy(function(){return Promise.all([n.e(6109),n.e(6640),n.e(8413),n.e(2433)]).then(n.bind(n,46789))})),asset:{type:"BLOCK",id:"src-example-demo-procard",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(82991).Z},"@yuntijs/ui":{type:"NPM",value:"1.0.0-beta.54"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@yuntijs/ui":n(49391),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function l(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},l)}));function i(){return s.apply(this,arguments)}return i}()}},"src-example-demo-table":{component:r.memo(r.lazy(function(){return Promise.all([n.e(6109),n.e(6640),n.e(8413),n.e(2433)]).then(n.bind(n,95510))})),asset:{type:"BLOCK",id:"src-example-demo-table",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(49353).Z},"@yuntijs/ui":{type:"NPM",value:"1.0.0-beta.54"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@yuntijs/ui":n(49391),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function l(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},l)}));function i(){return s.apply(this,arguments)}return i}()}},"src-example-demo-form":{component:r.memo(r.lazy(function(){return Promise.all([n.e(6109),n.e(6640),n.e(8413),n.e(2433)]).then(n.bind(n,47730))})),asset:{type:"BLOCK",id:"src-example-demo-form",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(73894).Z},"@yuntijs/ui":{type:"NPM",value:"1.0.0-beta.54"},"lucide-react":{type:"NPM",value:"0.414.0"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@yuntijs/ui":n(49391),"lucide-react":n(37105),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function l(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},l)}));function i(){return s.apply(this,arguments)}return i}()}},"src-example-demo-typography":{component:r.memo(r.lazy(function(){return Promise.all([n.e(6109),n.e(6640),n.e(8413),n.e(2433)]).then(n.bind(n,43603))})),asset:{type:"BLOCK",id:"src-example-demo-typography",refAtomIds:[],dependencies:{"index.tsx":{type:"FILE",value:n(75205).Z},"@yuntijs/ui":{type:"NPM",value:"1.0.0-beta.54"},react:{type:"NPM",value:"18.3.1"}},entry:"index.tsx"},context:{"@yuntijs/ui":n(49391),react:n(92379)},renderOpts:{compile:function(){var s=m()(o()().mark(function l(){var a,u=arguments;return o()().wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,n.e(9134).then(n.bind(n,59134));case 2:return e.abrupt("return",(a=e.sent).default.apply(a,u));case 3:case"end":return e.stop()}},l)}));function i(){return s.apply(this,arguments)}return i}()}}}},40456:function(d,t,n){"use strict";n.r(t),n.d(t,{texts:function(){return o}});var c=n(24780);const o=[]},2530:function(d,t){"use strict";t.Z=`import { StoryBook, useControls, useCreateStore } from '@lobehub/ui';
+import type { BreadcrumbProps } from '@yuntijs/ui';
+import { Breadcrumb } from '@yuntijs/ui';
 import React from 'react';
 
 const items = [
@@ -327,6 +327,81 @@ export default () => {
         },
       }}
     />
+  );
+};
+`},75205:function(d,t){"use strict";t.Z=`import { Divider, Typography } from '@yuntijs/ui';
+import React from 'react';
+
+const { Title, Paragraph, Text, Link, Time } = Typography;
+
+const blockContent = \`AntV \u662F\u8682\u8681\u96C6\u56E2\u5168\u65B0\u4E00\u4EE3\u6570\u636E\u53EF\u89C6\u5316\u89E3\u51B3\u65B9\u6848\uFF0C\u81F4\u529B\u4E8E\u63D0\u4F9B\u4E00\u5957\u7B80\u5355\u65B9\u4FBF\u3001\u4E13\u4E1A\u53EF\u9760\u3001\u4E0D\u9650\u53EF\u80FD\u7684\u6570\u636E\u53EF\u89C6\u5316\u6700\u4F73\u5B9E\u8DF5\u3002\u5F97\u76CA\u4E8E\u4E30\u5BCC\u7684\u4E1A\u52A1\u573A\u666F\u548C\u7528\u6237\u9700\u6C42\u6311\u6218\uFF0CAntV \u7ECF\u5386\u591A\u5E74\u79EF\u7D2F\u4E0E\u4E0D\u65AD\u6253\u78E8\uFF0C\u5DF2\u652F\u6491\u6574\u4E2A\u963F\u91CC\u96C6\u56E2\u5185\u5916 20000+ \u4E1A\u52A1\u7CFB\u7EDF\uFF0C\u901A\u8FC7\u4E86\u65E5\u5747\u5343\u4E07\u7EA7 UV \u4EA7\u54C1\u7684\u4E25\u82DB\u8003\u9A8C\u3002
+\u6211\u4EEC\u6B63\u5728\u57FA\u7840\u56FE\u8868\uFF0C\u56FE\u5206\u6790\uFF0C\u56FE\u7F16\u8F91\uFF0C\u5730\u7406\u7A7A\u95F4\u53EF\u89C6\u5316\uFF0C\u667A\u80FD\u53EF\u89C6\u5316\u7B49\u5404\u4E2A\u53EF\u89C6\u5316\u7684\u9886\u57DF\u8015\u8018\uFF0C\u6B22\u8FCE\u540C\u8DEF\u4EBA\u4E00\u8D77\u524D\u884C\u3002\`;
+
+export default () => {
+  return (
+    <Typography>
+      <Title>Introduction</Title>
+
+      <Paragraph>
+        In the process of internal desktop applications development, many different design specs and
+        implementations would be involved, which might cause designers and developers difficulties
+        and duplication and reduce the efficiency of development.
+      </Paragraph>
+
+      <Paragraph>
+        After massive project practice and summaries, Ant Design, a design language for background
+        applications, is refined by Ant UED Team, which aims to{' '}
+        <Text strong>
+          uniform the user interface specs for internal background projects, lower the unnecessary
+          cost of design differences and implementation and liberate the resources of design and
+          front-end development
+        </Text>
+        .
+      </Paragraph>
+
+      <Title level={2}>Guidelines and Resources</Title>
+
+      <Paragraph>
+        We supply a series of design principles, practical patterns and high quality design
+        resources (<Text code>Sketch</Text> and <Text code>Axure</Text>), to help people create
+        their product prototypes beautifully and efficiently.
+      </Paragraph>
+
+      <Paragraph>
+        <ul>
+          <li>
+            <Link href="/docs/spec/proximity">Principles</Link>
+          </li>
+          <li>
+            <Link href="/docs/spec/overview">Patterns</Link>
+          </li>
+          <li>
+            <Link href="/docs/resources">Resource Download</Link>
+          </li>
+        </ul>
+      </Paragraph>
+
+      <Paragraph>
+        Press <Text keyboard>Esc</Text> to exit...
+      </Paragraph>
+
+      <Divider />
+
+      <Paragraph>
+        <Text code>Time</Text> component:
+        <ul>
+          <li>
+            <Time time="2024-06-30 11:11:11" />
+          </li>
+          <li>
+            <Time relativeTime={false} time="2024-06-30 11:11:11" />
+          </li>
+          <li>
+            <Time format="YYYY/MM/DD HH:mm" relativeTime={false} time="2024-06-30 11:11:11" />
+          </li>
+        </ul>
+      </Paragraph>
+    </Typography>
   );
 };
 `},25639:function(d,t){"use strict";t.Z=`import { ActionIcon, ActionIconProps, StoryBook, useControls, useCreateStore } from '@lobehub/ui';

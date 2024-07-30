@@ -22,7 +22,7 @@
 ["\\\\/bfnrt]
 |
 u
-[0-9a-fA-F]{4})`,name:"constant.character.escape.json"},{match:"\\\\.",name:"invalid.illegal.unrecognized-string-escape.json"}]},value:{patterns:[{include:"#constant"},{include:"#number"},{include:"#string"},{include:"#array"},{include:"#object"},{include:"#comments"}]}},scopeName:"source.json"})]},66739:function(a,n,e){e.r(n),e.d(n,{default:function(){return u}});var i=e(4148),t=e(55241),d=e(51628),o=e(90950);const l=Object.freeze({displayName:"Liquid",fileTypes:["liquid"],foldingStartMarker:`(?x)
+[0-9a-fA-F]{4})`,name:"constant.character.escape.json"},{match:"\\\\.",name:"invalid.illegal.unrecognized-string-escape.json"}]},value:{patterns:[{include:"#constant"},{include:"#number"},{include:"#string"},{include:"#array"},{include:"#object"},{include:"#comments"}]}},scopeName:"source.json"})]},22270:function(a,n,e){e.r(n),e.d(n,{default:function(){return u}});var i=e(4148),t=e(55241),d=e(51628),o=e(90950);const l=Object.freeze({displayName:"Liquid",fileTypes:["liquid"],foldingStartMarker:`(?x)
 {%
   -?
   \\s*
