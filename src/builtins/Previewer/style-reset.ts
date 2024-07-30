@@ -269,7 +269,7 @@ export const resetStyle = css`
       min-width: revert;
       padding-block: revert;
       padding-inline: revert;
-      text-align: initial;
+      text-align: revert;
     }
   }
 
