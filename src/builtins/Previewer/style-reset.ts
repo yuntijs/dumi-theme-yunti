@@ -1,8 +1,12 @@
-import { css } from 'antd-style';
+import { FullToken, css } from 'antd-style';
 
 // reset style of https://github.com/lobehub/lobe-ui/blob/master/src/Markdown/markdown.style.ts
-export const resetStyle = css`
+export const resetStyle = (token: FullToken) => css`
   /* stylelint-disable */
+  font-size: ${token.fontSize}px;
+  line-height: ${token.lineHeight};
+  word-break: normal;
+
   a {
     color: revert;
 

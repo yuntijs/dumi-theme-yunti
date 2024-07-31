@@ -13,7 +13,7 @@ export const useStyles = createStyles(({ css, token, prefixCls }) => {
       }
     `,
     container: css`
-      ${resetStyle}
+      ${resetStyle(token)}
       .dumi-default-previewer {
         overflow: hidden;
         display: flex;
