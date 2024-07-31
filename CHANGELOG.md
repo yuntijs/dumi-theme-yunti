@@ -2,6 +2,39 @@
 
 # Changelog
 
+### [Version 1.1.8](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.1.7...v1.1.8)
+
+<sup>Released on **2024-07-31**</sup>
+
+#### ♻ Code Refactoring
+
+- **misc**: Change to use antd SSR plugin.
+
+#### 🐛 Bug Fixes
+
+- **Previewer**: Reset container style.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Code refactoring
+
+- **misc**: Change to use antd SSR plugin ([e0c41de](https://github.com/yuntijs/dumi-theme-yunti/commit/e0c41de))
+
+#### What's fixed
+
+- **Previewer**: Reset container style ([3f0993f](https://github.com/yuntijs/dumi-theme-yunti/commit/3f0993f))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.1.7](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.1.6...v1.1.7)
 
 <sup>Released on **2024-07-30**</sup>
