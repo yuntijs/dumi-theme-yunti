@@ -27,3 +27,7 @@ description: This is an doc example
 ## Typography
 
 <code src="./demos/Typography.tsx"></code>
+
+## Highlighter
+
+<code src="./demos/Highlighter.tsx"></code>

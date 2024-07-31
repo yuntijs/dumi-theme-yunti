@@ -87,6 +87,7 @@ export default defineConfig({
     ignorePreRenderError: true,
   },
   ...(isProduction ? { ssr: { builder: 'webpack' } } : {}),
+  ...(isPreview ? { devtool: 'source-map' } : {}),
   styles: [
     `html, body { background: transparent;  }
 
