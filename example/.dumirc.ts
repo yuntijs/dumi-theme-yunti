@@ -49,6 +49,7 @@ const themeConfig = defineThemeConfig({
       { title: 'Components', link: '/components/example' },
       { title: '分组示例', link: '/config/base' },
       { title: '折叠示例', link: '/demo/secondary-sidebar-colors' },
+      { title: '自定义页面', link: '/custom', target: '_blank' },
       { title: 'Changelog', link: '/changelog' },
       { title: 'Yunti UI', link: 'https://yuntijs.github.io/yunti-ui/' },
     ],
@@ -57,6 +58,14 @@ const themeConfig = defineThemeConfig({
       { title: 'Collapse Demo', link: '/demo/secondary-sidebar-colors-en' },
     ],
   },
+  customPages: [
+    {
+      path: '/custom',
+      sider: false,
+      header: false,
+      footer: false,
+    },
+  ],
 });
 
 const base = isProduction && !isPreview ? '/dumi-theme-yunti/' : '/';
