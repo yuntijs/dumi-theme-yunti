@@ -1,5 +1,7 @@
 import { type FeatureItem } from '@lobehub/ui';
 
+import { CustomPageConfigItem } from '@/types';
+
 import { SiteStore } from '../useSiteStore';
 
 export const isHeroPageSel = (s: SiteStore) => Boolean(s.routeMeta.frontmatter.hero);
@@ -37,4 +39,13 @@ export const featuresSel = (s: SiteStore): FeatureItem[] => {
     s.routeMeta.frontmatter.features ||
     []
   );
+};
+
+export const customConfigSel = (s: SiteStore): CustomPageConfigItem | undefined => {
+  const customePages = s.siteData.themeConfig.customPages;
+  if (!customePages || customePages.length === 0) {
+    return;
+  }
+
+  return customePages.find(c => c.path === s.location.pathname);
 };

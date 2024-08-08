@@ -53,6 +53,17 @@ export interface FooterConfig {
   resources?: FooterColumn;
 }
 
+export interface CustomPageConfigItem {
+  /** 页面路径 */
+  path: string;
+  /** 是否展示头部 */
+  header?: boolean;
+  /** 是否展示侧边栏 */
+  sider?: boolean;
+  /** 是否展示页脚 */
+  footer?: boolean;
+}
+
 export interface SiteThemeConfig {
   actions?: HeroProps['actions'];
   apiHeader?: ApiHeaderConfig | false;
@@ -79,6 +90,8 @@ export interface SiteThemeConfig {
   title?: string;
   /** sidebar group 模式路由 */
   sidebarGroupModePath?: true | SidebarGroupModePathItem[];
+  /** 自定义页面，可以通过配置去掉页面的头部、侧边栏和页脚 */
+  customPages?: CustomPageConfigItem[];
 }
 
 export interface AllSiteThemeConfig extends SiteThemeConfig, Omit<IThemeConfig, 'socialLinks'> {}

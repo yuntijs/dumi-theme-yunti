@@ -34,7 +34,6 @@ test-output
 .umi
 .umi-production
 .umi-test
-.dumi
 
 # husky
 .husky/prepare-commit-msg

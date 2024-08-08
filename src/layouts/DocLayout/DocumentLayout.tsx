@@ -1,6 +1,6 @@
 import { Layout } from '@lobehub/ui';
 import { useResponsive, useTheme } from 'antd-style';
-import { Helmet, useIntl, useLocation } from 'dumi';
+import { Helmet, useIntl, useLocation, useOutlet } from 'dumi';
 import isEqual from 'fast-deep-equal';
 import { memo, useCallback, useEffect } from 'react';
 import { shallow } from 'zustand/shallow';
@@ -12,7 +12,13 @@ import Footer from '@/slots/Footer';
 import Header from '@/slots/Header';
 import Sidebar from '@/slots/Sidebar';
 import Toc from '@/slots/Toc';
-import { isHeroPageSel, siteTitleSel, tocAnchorItemSel, useSiteStore } from '@/store';
+import {
+  customConfigSel,
+  isHeroPageSel,
+  siteTitleSel,
+  tocAnchorItemSel,
+  useSiteStore,
+} from '@/store';
 
 const DocumentLayout = memo(() => {
   const intl = useIntl();
@@ -25,7 +31,7 @@ const DocumentLayout = memo(() => {
     const isHomePage = isHeroPageSel(s);
     let page;
 
-    if (isHomePage) {
+    if (isHomePage || s.location.pathname === '/') {
       page = 'home';
     } else if (isChanlogPage) {
       page = 'changelog';
@@ -43,7 +49,10 @@ const DocumentLayout = memo(() => {
 
   const fm = useSiteStore(s => s.routeMeta.frontmatter, isEqual);
 
-  const hideSidebar = page !== 'docs' || mobile || fm.sidebar === false;
+  const customConfig = useSiteStore(customConfigSel);
+
+  const hideSidebar =
+    page !== 'docs' || mobile || fm.sidebar === false || customConfig?.sider === false;
   const shouldHideToc = fm.toc === false || noToc;
   const hideToc = mobile ? shouldHideToc : !laptop || shouldHideToc;
 
@@ -86,13 +95,28 @@ const DocumentLayout = memo(() => {
     document.body.scrollTo(0, 0);
   }, [siteTitle]);
 
+  const outlet = useOutlet();
+
+  if (
+    customConfig?.header === false &&
+    customConfig?.sider === false &&
+    customConfig?.footer === false
+  ) {
+    return (
+      <>
+        <HelmetBlock />
+        {outlet}
+      </>
+    );
+  }
+
   return (
     <>
       <HelmetBlock />
       <Layout
         asideWidth={theme.sidebarWidth}
-        footer={<Footer />}
-        header={<Header />}
+        footer={customConfig?.footer !== false && <Footer />}
+        header={customConfig?.header !== false && <Header />}
         headerHeight={mobile && page !== 'home' ? theme.headerHeight + 36 : theme.headerHeight}
         // @Todo: workaround for sidebar
         key={hideSidebar ? 'full' : 'no-sidebar'}
@@ -100,9 +124,10 @@ const DocumentLayout = memo(() => {
         toc={hideToc ? undefined : <Toc />}
         tocWidth={hideToc ? 0 : theme.tocWidth}
       >
-        {page === 'home' && <Home />}
-        {page === 'changelog' && <Changelog />}
-        {page === 'docs' && <Docs />}
+        {customConfig && outlet}
+        {!customConfig && page === 'home' && <Home />}
+        {!customConfig && page === 'changelog' && <Changelog />}
+        {!customConfig && page === 'docs' && <Docs />}
       </Layout>
     </>
   );

@@ -61,7 +61,7 @@ const Navbar = memo(() => {
                 href={String(item.link)}
                 onClick={e => e.preventDefault()}
                 rel="noreferrer"
-                target="_blank"
+                target={item.target || '_blank'}
               >
                 <span className="lint-text">{item.title}</span> <Icon icon={ExternalLink} />
               </a>
@@ -69,6 +69,7 @@ const Navbar = memo(() => {
               <Link
                 className={styles.link}
                 onClick={e => e.preventDefault()}
+                target={item.target}
                 to={String(item.link)}
               >
                 {item.title}
@@ -77,20 +78,20 @@ const Navbar = memo(() => {
           };
         })}
         onTabClick={activeKey => {
-          const url = nav.find(
+          const targetNav = nav.find(
             index =>
               index.activePath === activeKey ||
               index.link === activeKey ||
               linkToKey(index.link) === activeKey
-          )?.link;
+          );
 
-          if (!url) return;
+          if (!targetNav?.link) return;
 
-          if (isExternalLinks(url)) {
-            return window.open(url);
+          if (isExternalLinks(targetNav.link) || targetNav.target === '_blank') {
+            return window.open(targetNav.link);
           }
 
-          history.push(url);
+          history.push(targetNav.link);
         }}
       />
       <NavbarExtra />
