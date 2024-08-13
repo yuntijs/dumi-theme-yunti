@@ -26,7 +26,7 @@ const DocumentLayout = memo(() => {
   const theme = useTheme();
   const { mobile, laptop } = useResponsive();
 
-  const { loading, page, siteTitle, noToc } = useSiteStore(s => {
+  const { loading, page, siteTitle, noToc, themeConfig } = useSiteStore(s => {
     const isChanlogPage = s.location.pathname === '/changelog';
     const isHomePage = isHeroPageSel(s);
     let page;
@@ -44,6 +44,7 @@ const DocumentLayout = memo(() => {
       noToc: tocAnchorItemSel(s).length === 0,
       page: page,
       siteTitle: siteTitleSel(s),
+      themeConfig: s.siteData.themeConfig,
     };
   }, shallow);
 
@@ -56,26 +57,40 @@ const DocumentLayout = memo(() => {
   const shouldHideToc = fm.toc === false || noToc;
   const hideToc = mobile ? shouldHideToc : !laptop || shouldHideToc;
 
-  const HelmetBlock = useCallback(
-    () => (
+  const HelmetBlock = useCallback(() => {
+    const title = customConfig?.title || fm.title;
+    const description = customConfig?.description || fm.description || themeConfig.description;
+    const keywords = customConfig?.keywords || fm.keywords || themeConfig.keywords;
+    return (
       <Helmet>
         <html lang={intl.locale.replace(/-.+$/, '')} />
-        {fm.title && <meta content={fm.title} property="og:title" />}
-        {fm.description && <meta content={fm.description} name="description" />}
-        {fm.description && <meta content={fm.description} property="og:description" />}
-        {fm.keywords && <meta content={fm.keywords.join(',')} name="keywords" />}
-        {fm.keywords && <meta content={fm.keywords.join(',')} property="og:keywords" />}
-        {!fm.title || page === 'home' ? (
+        {title && <meta content={title} property="og:title" />}
+        {description && <meta content={description} name="description" />}
+        {description && <meta content={description} property="og:description" />}
+        {keywords && <meta content={keywords.join(',')} name="keywords" />}
+        {keywords && <meta content={keywords.join(',')} property="og:keywords" />}
+        {!title || page === 'home' ? (
           <title>{siteTitle}</title>
         ) : (
           <title>
-            {fm.title} - {siteTitle}
+            {title} - {siteTitle}
           </title>
         )}
       </Helmet>
-    ),
-    [intl, fm, siteTitle, page]
-  );
+    );
+  }, [
+    customConfig?.description,
+    customConfig?.keywords,
+    customConfig?.title,
+    fm.description,
+    fm.keywords,
+    fm.title,
+    intl.locale,
+    page,
+    siteTitle,
+    themeConfig.description,
+    themeConfig.keywords,
+  ]);
 
   // handle hash change or visit page hash after async chunk loaded
   useEffect(() => {

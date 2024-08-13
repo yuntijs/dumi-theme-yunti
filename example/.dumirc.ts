@@ -30,7 +30,6 @@ const themeConfig = defineThemeConfig({
     sourceUrl: `{github}/tree/master/src/{atomId}/index.tsx`,
     type: 'doc',
   },
-  description: 'Yunti UI is an open-source UI component library for building chatbot web apps',
   footer: 'Made with ☁️ by YuntiJS',
   giscus: {
     category: 'Q&A',
@@ -43,6 +42,8 @@ const themeConfig = defineThemeConfig({
     github: homepage,
   },
   title: 'Dumi Theme YuntiJS',
+  description: 'Yunti documentation site theme package designed for Dumi 2',
+  keywords: ['theme', 'antd', 'dumi', 'dumi-theme'],
   sidebarGroupModePath: ['/config', '/components'],
   nav: {
     'zh-CN': [
@@ -61,6 +62,9 @@ const themeConfig = defineThemeConfig({
   customPages: [
     {
       path: '/custom',
+      title: '自定义页面',
+      description: '自定义页面的描述',
+      keywords: ['自定义页面', 'dumi', 'dumi-theme', 'yunti-ui'],
       sider: false,
       header: false,
       footer: false,
@@ -105,5 +109,4 @@ export default defineConfig({
   }`,
   ],
   themeConfig,
-  title: 'Dumi Theme YuntiJS',
 });

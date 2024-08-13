@@ -56,6 +56,12 @@ export interface FooterConfig {
 export interface CustomPageConfigItem {
   /** 页面路径 */
   path: string;
+  /** 页面标题 */
+  title?: string;
+  /** 页面描述，该值会用于生成 <meta> 标签 */
+  description?: string;
+  /** 页面关键词，该值会用于生成 <meta> 标签 */
+  keywords?: string[];
   /** 是否展示头部 */
   header?: boolean;
   /** 是否展示侧边栏 */
@@ -67,7 +73,6 @@ export interface CustomPageConfigItem {
 export interface SiteThemeConfig {
   actions?: HeroProps['actions'];
   apiHeader?: ApiHeaderConfig | false;
-  description?: string;
   docStyle?: 'block' | 'pure';
   features?: FeaturesProps['items'];
   footer?: string | false;
@@ -88,6 +93,10 @@ export interface SiteThemeConfig {
     [key in SocialTypes | 'discord']?: string;
   };
   title?: string;
+  /** 默认描述，未设置描述的页面，该值会用于生成 <meta> 标签 */
+  description?: string;
+  /** 默认关键词，未设置关键词的页面，该值会用于生成 <meta> 标签 */
+  keywords?: string[];
   /** sidebar group 模式路由 */
   sidebarGroupModePath?: true | SidebarGroupModePathItem[];
   /** 自定义页面，可以通过配置去掉页面的头部、侧边栏和页脚 */
