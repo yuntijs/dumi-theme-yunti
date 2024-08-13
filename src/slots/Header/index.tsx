@@ -14,7 +14,7 @@ import LangSwitch from './LangSwitch';
 import ThemeSwitch from './ThemeSwitch';
 
 const Header = memo(() => {
-  const hasHeader = useSiteStore((s) => Boolean(s.routeMeta.frontmatter));
+  const hasHeader = useSiteStore(s => Boolean(s.routeMeta.frontmatter));
 
   const { mobile } = useResponsive();
   if (!hasHeader) return;
@@ -23,13 +23,17 @@ const Header = memo(() => {
     <Head
       actions={
         mobile ? (
-          <ThemeSwitch />
+          <>
+            <ThemeSwitch />
+            <div id="header-actions-extra"></div>
+          </>
         ) : (
           <>
             <SearchBar /> <LangSwitch />
             <GithubButton />
             <DiscordButton />
             <ThemeSwitch />
+            <div id="header-actions-extra"></div>
           </>
         )
       }
