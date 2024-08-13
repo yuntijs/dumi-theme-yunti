@@ -2,6 +2,32 @@
 
 # Changelog
 
+## [Version 1.3.0](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.2.0...v1.3.0)
+
+<sup>Released on **2024-08-13**</sup>
+
+#### ✨ Features
+
+- **misc**: Add description and keywords config support, add header-actions-extra slot.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **misc**: Add description and keywords config support ([54764a9](https://github.com/yuntijs/dumi-theme-yunti/commit/54764a9))
+- **misc**: Add header-actions-extra slot ([24e78c2](https://github.com/yuntijs/dumi-theme-yunti/commit/24e78c2))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version 1.2.0](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.1.8...v1.2.0)
 
 <sup>Released on **2024-08-08**</sup>
