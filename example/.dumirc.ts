@@ -41,6 +41,14 @@ const themeConfig = defineThemeConfig({
   socialLinks: {
     github: homepage,
   },
+  header: {
+    userActionButton: {
+      button: {
+        className: 'user-action-button',
+        type: 'primary',
+      },
+    },
+  },
   title: 'Dumi Theme YuntiJS',
   description: 'Yunti documentation site theme package designed for Dumi 2',
   keywords: ['theme', 'antd', 'dumi', 'dumi-theme'],

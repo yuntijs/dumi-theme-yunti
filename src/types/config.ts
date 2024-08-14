@@ -1,4 +1,5 @@
 import type { FeaturesProps, FooterProps, HeroProps } from '@lobehub/ui';
+import { ButtonProps, MenuProps } from 'antd';
 import type { IThemeConfig, SocialTypes } from 'dumi/dist/client/theme-api/types';
 import { FooterColumn } from 'rc-footer/es/column';
 
@@ -91,6 +92,13 @@ export interface SiteThemeConfig {
   siteToken?: SiteConfigToken;
   socialLinks?: {
     [key in SocialTypes | 'discord']?: string;
+  };
+  header?: {
+    /** 用户信息，默认会从 __LOGIN_USER 本地存储中获取 user 和 avatar，不存在的话展示 登录按钮  */
+    userActionButton?: {
+      button?: Omit<ButtonProps, 'children'>;
+      menuItems?: MenuProps['items'];
+    };
   };
   title?: string;
   /** 默认描述，未设置描述的页面，该值会用于生成 <meta> 标签 */

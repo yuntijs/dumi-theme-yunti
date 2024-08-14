@@ -44,6 +44,11 @@ export interface ISiteData {
   themeConfig: AllSiteThemeConfig;
 }
 
+export interface ILoginUser {
+  user: string;
+  avatar?: string;
+}
+
 export interface SiteStore {
   locale: ILocale;
   location: Location;
@@ -52,6 +57,7 @@ export interface SiteStore {
   sidebar?: ISidebarGroup[];
   siteData: ISiteData;
   tabMeta?: NonNullable<IRouteMeta['tabs']>[0]['meta'];
+  loginUser?: ILoginUser;
 }
 
 export const initialState: SiteStore = {

@@ -1,4 +1,5 @@
 import { Header as Head } from '@lobehub/ui';
+import { Flex } from 'antd';
 import { useResponsive } from 'antd-style';
 import { memo } from 'react';
 
@@ -12,6 +13,7 @@ import DiscordButton from './DiscordButton';
 import GithubButton from './GithubButton';
 import LangSwitch from './LangSwitch';
 import ThemeSwitch from './ThemeSwitch';
+import { HeaderUserActionButton } from './UserActionButton';
 
 const Header = memo(() => {
   const hasHeader = useSiteStore(s => Boolean(s.routeMeta.frontmatter));
@@ -23,17 +25,18 @@ const Header = memo(() => {
     <Head
       actions={
         mobile ? (
-          <>
+          <Flex align="center" gap="small">
             <ThemeSwitch />
-            <div id="header-actions-extra"></div>
-          </>
+            <HeaderUserActionButton />
+          </Flex>
         ) : (
           <>
-            <SearchBar /> <LangSwitch />
+            <SearchBar />
+            <LangSwitch />
             <GithubButton />
             <DiscordButton />
             <ThemeSwitch />
-            <div id="header-actions-extra"></div>
+            <HeaderUserActionButton />
           </>
         )
       }

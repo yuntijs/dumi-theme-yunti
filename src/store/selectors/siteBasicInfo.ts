@@ -7,3 +7,7 @@ export const githubSel = (s: SiteStore) => s.siteData.themeConfig.socialLinks?.g
 export const discordSel = (s: SiteStore) => s.siteData.themeConfig.socialLinks?.discord || '';
 
 export const giscusSel = (s: SiteStore) => s.siteData.themeConfig.giscus;
+
+export const headerSel = (s: SiteStore) => {
+  return s.siteData.themeConfig.header;
+};

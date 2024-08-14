@@ -148,9 +148,6 @@ Or clone it for local development:
 $ git clone https://github.com/yuntijs/dumi-theme-yunti.git
 $ cd dumi-theme-yunti
 $ pnpm install
-# run theme dev
-$ pnpm dev
-# run example dev
 $ pnpm docs:dev
 ```
 
