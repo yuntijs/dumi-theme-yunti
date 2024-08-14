@@ -2,6 +2,31 @@
 
 # Changelog
 
+## [Version 1.4.0](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.3.0...v1.4.0)
+
+<sup>Released on **2024-08-14**</sup>
+
+#### ✨ Features
+
+- **misc**: Add UserActionButton for header.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **misc**: Add UserActionButton for header ([4089d3d](https://github.com/yuntijs/dumi-theme-yunti/commit/4089d3d))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version 1.3.0](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.2.0...v1.3.0)
 
 <sup>Released on **2024-08-13**</sup>
