@@ -1,10 +1,11 @@
 import { Layout } from '@lobehub/ui';
-import { useResponsive, useTheme } from 'antd-style';
+import { useTheme } from 'antd-style';
 import { Helmet, useIntl, useLocation, useOutlet } from 'dumi';
 import isEqual from 'fast-deep-equal';
 import { memo, useCallback, useEffect } from 'react';
 import { shallow } from 'zustand/shallow';
 
+import { useResponsive } from '@/hooks/useResponsive';
 import Changelog from '@/pages/Changelog';
 import Docs from '@/pages/Docs';
 import Home from '@/pages/Home';

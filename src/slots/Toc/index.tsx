@@ -1,9 +1,10 @@
 import { Toc as T } from '@lobehub/ui';
-import { useResponsive, useTheme } from 'antd-style';
+import { useTheme } from 'antd-style';
 import { useLocation } from 'dumi';
 import isEqual from 'fast-deep-equal';
 import { memo, useEffect, useState } from 'react';
 
+import { useResponsive } from '@/hooks/useResponsive';
 import { tocAnchorItemSel, useSiteStore } from '@/store';
 
 const GAP = 48;

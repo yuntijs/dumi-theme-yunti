@@ -1,10 +1,10 @@
 import { Icon, Markdown, Snippet } from '@lobehub/ui';
 import { Divider, Space, Typography } from 'antd';
-import { useResponsive } from 'antd-style';
 import { Edit3, Github } from 'lucide-react';
 import { type ReactNode, memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
+import { useResponsive } from '@/hooks/useResponsive';
 import { ApiHeaderConfig } from '@/types';
 
 import { useStyles } from './style';
@@ -84,8 +84,8 @@ export const ApiHeader = memo<ApiTitleProps>(
     docUrl,
     serviceList = [],
   }) => {
-    const { styles } = useStyles();
     const { mobile } = useResponsive();
+    const { styles } = useStyles({ mobile });
     const isDoc = type === 'doc';
 
     const items = [
@@ -119,7 +119,7 @@ export const ApiHeader = memo<ApiTitleProps>(
             <Divider dashed style={{ margin: '2px 0' }} />
             <Flexbox distribution={'space-between'} gap={mobile ? 24 : 0} horizontal={!mobile}>
               <Space split={<Divider type={'vertical'} />} wrap>
-                {serviceList.map((item) => (
+                {serviceList.map(item => (
                   <a
                     href={item.url}
                     key={item.label}
@@ -149,5 +149,5 @@ export const ApiHeader = memo<ApiTitleProps>(
         )}
       </Flexbox>
     );
-  },
+  }
 );

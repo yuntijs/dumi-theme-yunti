@@ -1,11 +1,11 @@
 import { StyleProvider } from '@ant-design/cssinjs';
 import { Giscus } from '@lobehub/ui';
-import { useResponsive } from 'antd-style';
 import { useLocation, useOutlet } from 'dumi';
 import { memo, useCallback, useEffect } from 'react';
 import { Center } from 'react-layout-kit';
 import { shallow } from 'zustand/shallow';
 
+import { useResponsive } from '@/hooks/useResponsive';
 import ApiHeader from '@/slots/ApiHeader';
 import Content from '@/slots/Content';
 import { giscusSel, isApiPageSel, useSiteStore } from '@/store';

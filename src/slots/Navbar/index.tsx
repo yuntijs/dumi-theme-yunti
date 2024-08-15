@@ -6,41 +6,45 @@ import { ExternalLink } from 'lucide-react';
 import { memo } from 'react';
 import { shallow } from 'zustand/shallow';
 
+import { useResponsive } from '@/hooks/useResponsive';
 import { useSiteStore } from '@/store';
 import { isExternalLinks } from '@/utils';
 
-const useStyles = createStyles(({ css, stylish, token, responsive, prefixCls }) => {
-  return {
-    link: css`
-      ${stylish.resetLinkColor}
-      display: inline-flex;
-      align-items: center;
-
-      & > .lint-text {
+const useStyles = createStyles(
+  ({ css, stylish, token, prefixCls }, { mobile }: { mobile?: boolean }) => {
+    return {
+      link: css`
         ${stylish.resetLinkColor}
-      }
+        display: inline-flex;
+        align-items: center;
 
-      & > .anticon {
-        margin-left: ${token.marginXS}px;
-        font-size: ${token.fontSizeSM}px;
-        color: ${token.colorTextTertiary};
-      }
-    `,
-    tabs: css`
-      .${prefixCls}-tabs-tab-active a {
-        color: ${token.colorText} !important;
-      }
-      ${responsive.mobile} {
-        display: none;
-      }
-    `,
-  };
-});
+        & > .lint-text {
+          ${stylish.resetLinkColor}
+        }
+
+        & > .anticon {
+          margin-left: ${token.marginXS}px;
+          font-size: ${token.fontSizeSM}px;
+          color: ${token.colorTextTertiary};
+        }
+      `,
+      tabs: css`
+        .${prefixCls}-tabs-tab-active a {
+          color: ${token.colorText} !important;
+        }
+        ${mobile} {
+          display: none;
+        }
+      `,
+    };
+  }
+);
 
 const linkToKey = (path?: string) => (path ?? '').split('/').slice(0, 2).join('/');
 
 const Navbar = memo(() => {
-  const { styles } = useStyles();
+  const { mobile } = useResponsive();
+  const { styles } = useStyles({ mobile });
   const { pathname } = useLocation();
 
   const nav = useSiteStore(s => s.navData, shallow);

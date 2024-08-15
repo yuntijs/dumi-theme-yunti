@@ -7,6 +7,7 @@
     "build:no-compress": "COMPRESS=none dumi build",
     "dev": "dumi dev",
     "postinstall": "npm run setup",
+    "mbp": "MOBILE=true npm run bp",
     "preview": "dumi preview",
     "setup": "dumi setup"
   },

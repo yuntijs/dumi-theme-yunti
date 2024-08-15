@@ -1,8 +1,8 @@
-import { useResponsive } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
+import { useResponsive } from '@/hooks/useResponsive';
 import { contentBottomSel, useSiteStore } from '@/store';
 
 import Linker from './Linker';

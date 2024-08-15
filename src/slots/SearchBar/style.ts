@@ -1,12 +1,12 @@
 import { createStyles } from 'antd-style';
 
-export const useStyles = createStyles(({ token, responsive, css, cx }) => {
+export const useStyles = createStyles(({ token, css, cx }, { mobile }: { mobile?: boolean }) => {
   return {
     container: css`
       position: relative;
 
       // TODO: support search for mobile devices
-      ${responsive.mobile} {
+      ${mobile} {
         display: none;
       }
     `,
@@ -15,8 +15,7 @@ export const useStyles = createStyles(({ token, responsive, css, cx }) => {
       width: 280px;
       height: ${token.controlHeightLG}px;
       padding: 0;
-      padding-inline-start: 40px;
-      padding-inline-end: 12px;
+      padding-inline: 40px 12px;
 
       font-size: 14px;
       color: ${token.colorTextSecondary};
@@ -122,10 +121,10 @@ export const useStyles = createStyles(({ token, responsive, css, cx }) => {
 
         transition: all 0.3s;
 
-        ${responsive.mobile} {
+        ${mobile} {
           display: none;
         }
-      `,
+      `
     ),
     svg: cx(css`
       position: absolute;

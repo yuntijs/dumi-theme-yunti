@@ -48,6 +48,7 @@ dumi-theme-yunti is a documentation site theme package designed for `Dumi 2`. <b
 - [x] 🧩 **Flexible Component Reusability:** This theme package provides high flexibility for customizing local themes. It exports premium components from the theme package, which can be reused as independent modules. Developers can freely combine and use these components in the dumi local theme package.
 - [x] 📱 **Well-Adapted for Mobile Devices:** This theme package is well-adapted for mobile devices. With the flexible style solution based on CSSinJS, multiple layout options are easily implemented. Users can enjoy a consistent and smooth experience across different devices.
 - [ ] 🧭 **SSR Enhancement and Menu Nesting:** Refer to antd source code to optimize SSR and menu nesting.
+  - [x] Supports specifying desktop or mobile when build SSR, you can specify this using the `DESKTOP` and `MOBILE` env, also you can use `useResponsive` by `import { useResponsive } from 'dumi-theme-yunti'`.
   - [ ] <https://react.dev/errors/418?invariant=418>
   - [ ] <https://react.dev/errors/422?invariant=422>
 

@@ -1,8 +1,8 @@
 import { Header as Head } from '@lobehub/ui';
 import { Flex } from 'antd';
-import { useResponsive } from 'antd-style';
 import { memo } from 'react';
 
+import { useResponsive } from '@/hooks/useResponsive';
 import Logo from '@/slots/Logo';
 import Navbar from '@/slots/Navbar';
 import SearchBar from '@/slots/SearchBar';

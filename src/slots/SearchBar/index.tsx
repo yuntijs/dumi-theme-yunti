@@ -1,4 +1,5 @@
 import { SearchBar as Input } from '@lobehub/ui';
+import { useResponsive } from 'antd-style';
 import { useIntl, useSiteSearch } from 'dumi';
 import SearchResult from 'dumi/theme-default/slots/SearchResult';
 import { memo, useState } from 'react';
@@ -6,7 +7,8 @@ import { memo, useState } from 'react';
 import { useStyles } from './style';
 
 const SearchBar = memo(() => {
-  const { styles } = useStyles();
+  const { mobile } = useResponsive();
+  const { styles } = useStyles({ mobile });
   const [focusing, setFocusing] = useState(false);
   const { keywords, setKeywords, result, loading } = useSiteSearch();
   const intl = useIntl();
