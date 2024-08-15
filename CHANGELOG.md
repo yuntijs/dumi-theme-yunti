@@ -2,6 +2,31 @@
 
 # Changelog
 
+## [Version 1.5.0](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.4.0...v1.5.0)
+
+<sup>Released on **2024-08-15**</sup>
+
+#### ✨ Features
+
+- **misc**: Support specify desktop or mobile when build SSR.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **misc**: Support specify desktop or mobile when build SSR ([213b344](https://github.com/yuntijs/dumi-theme-yunti/commit/213b344))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version 1.4.0](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.3.0...v1.4.0)
 
 <sup>Released on **2024-08-14**</sup>
