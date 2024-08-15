@@ -14,10 +14,7 @@ const Content = memo<DivProps>(({ children, ...props }) => {
   const loading = useSiteStore(s => s.siteData.loading);
   const { docStyle } = useSiteStore(themeConfig, isEqual);
   const { mobile } = useResponsive();
-  const { styles, cx } = useStyles({
-    isPure: docStyle === 'pure',
-    mobile,
-  });
+  const { styles, cx } = useStyles(docStyle === 'pure');
 
   useEffect(() => {
     document.body.scrollTo(0, 0);

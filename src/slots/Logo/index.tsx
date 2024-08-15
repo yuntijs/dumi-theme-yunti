@@ -14,7 +14,7 @@ const Logo = memo(() => {
   const config = useSiteStore(themeConfig, isEqual);
   const locale = useSiteStore(s => s.locale, isEqual);
   const { mobile } = useResponsive();
-  const { styles, cx } = useStyles({ mobile });
+  const { styles, cx } = useStyles();
 
   return (
     config && (

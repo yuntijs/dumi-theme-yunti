@@ -1,6 +1,6 @@
 import { createStyles } from 'antd-style';
 
-export const useStyles = createStyles(({ css, token }, { mobile }: { mobile?: boolean }) => {
+export const useStyles = createStyles(({ css, responsive, token }) => {
   const prefix = `rc-footer`;
 
   return {
@@ -13,7 +13,7 @@ export const useStyles = createStyles(({ css, token }, { mobile }: { mobile?: bo
 
       border-top: 1px solid ${token.colorSplit};
 
-      ${mobile} {
+      ${responsive.mobile} {
         flex-direction: column;
         border: none;
       }
@@ -144,7 +144,7 @@ export const useStyles = createStyles(({ css, token }, { mobile }: { mobile?: bo
         }
       }
 
-      ${mobile} {
+      ${responsive.mobile} {
         .${prefix} {
           text-align: center;
 

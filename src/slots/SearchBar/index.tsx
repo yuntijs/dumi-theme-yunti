@@ -8,7 +8,7 @@ import { useStyles } from './style';
 
 const SearchBar = memo(() => {
   const { mobile } = useResponsive();
-  const { styles } = useStyles({ mobile });
+  const { styles } = useStyles();
   const [focusing, setFocusing] = useState(false);
   const { keywords, setKeywords, result, loading } = useSiteSearch();
   const intl = useIntl();

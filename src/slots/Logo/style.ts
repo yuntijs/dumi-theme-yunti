@@ -1,7 +1,7 @@
 import { createStyles } from 'antd-style';
 
 export const useStyles = createStyles(
-  ({ css, token }, { mobile }: { mobile?: boolean }) => css`
+  ({ css, responsive, token }) => css`
     display: inline-flex;
     align-items: center;
 
@@ -11,7 +11,7 @@ export const useStyles = createStyles(
     color: ${token.colorText};
     text-decoration: none;
 
-    ${mobile} {
+    ${responsive.mobile} {
       font-size: 18px;
     }
   `

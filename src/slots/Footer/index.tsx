@@ -16,7 +16,7 @@ const Footer = memo(() => {
   const { footerConfig, footer } = themeConfig;
   const githubUrl = useSiteStore(githubSel, shallow);
   const { mobile } = useResponsive();
-  const { styles, theme } = useStyles({ mobile });
+  const { styles, theme } = useStyles();
 
   if (!footer) return;
 

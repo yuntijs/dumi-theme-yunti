@@ -85,7 +85,7 @@ export const ApiHeader = memo<ApiTitleProps>(
     serviceList = [],
   }) => {
     const { mobile } = useResponsive();
-    const { styles } = useStyles({ mobile });
+    const { styles } = useStyles();
     const isDoc = type === 'doc';
 
     const items = [
