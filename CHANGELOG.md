@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.5.2](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.5.1...v1.5.2)
+
+<sup>Released on **2024-08-19**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Div is render to outsite of html tag when SSR.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Div is render to outsite of html tag when SSR ([4f62f74](https://github.com/yuntijs/dumi-theme-yunti/commit/4f62f74))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.5.1](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.5.0...v1.5.1)
 
 <sup>Released on **2024-08-15**</sup>
