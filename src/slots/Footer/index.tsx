@@ -1,7 +1,7 @@
 import { Footer as Foot, FooterProps } from '@lobehub/ui';
 import { Divider } from 'antd';
 import isEqual from 'fast-deep-equal';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { Center, Flexbox } from 'react-layout-kit';
 import { shallow } from 'zustand/shallow';
 
@@ -18,15 +18,17 @@ const Footer = memo(() => {
   const { mobile } = useResponsive();
   const { styles, theme } = useStyles();
 
+  const columns = useMemo(() => {
+    const cs = footerConfig?.columns
+      ? footerConfig?.columns
+      : getColumns({ github: githubUrl || (pkg as any).homepage });
+    if (footerConfig?.resources) cs[0] = footerConfig?.resources;
+    if (footerConfig?.moreProducts) cs[3] = footerConfig?.moreProducts;
+
+    return cs.filter(c => c.items && c.items.length > 0);
+  }, [footerConfig?.columns, footerConfig?.moreProducts, footerConfig?.resources, githubUrl, pkg]);
+
   if (!footer) return;
-
-  const columns = footerConfig?.columns
-    ? footerConfig?.columns
-    : getColumns({ github: githubUrl || (pkg as any).homepage });
-
-  if (footerConfig?.resources) columns[0] = footerConfig?.resources;
-  if (footerConfig?.moreProducts) columns[3] = footerConfig?.moreProducts;
-
   const bottomFooter = footerConfig?.bottom || footer;
 
   return (

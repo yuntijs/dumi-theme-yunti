@@ -93,6 +93,8 @@ const SSRPlugin = (api: IApi) => {
           const cssFile = writeCSSFile(result!.key, result!.ids.join(''), result!.css);
 
           file.content = addLinkStyle(file.content, cssFile);
+          // @Todo: move '</body></html>' to the end for workaround
+          file.content = file.content.replace('</body></html>', '') + '</body></html>';
         }
 
         return file;
