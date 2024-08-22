@@ -1,5 +1,5 @@
 import { StyleProvider } from '@ant-design/cssinjs';
-import { Giscus } from '@lobehub/ui';
+import { Giscus, ImageGallery } from '@lobehub/ui';
 import { useLocation, useOutlet } from 'dumi';
 import { memo, useCallback, useEffect } from 'react';
 import { Center } from 'react-layout-kit';
@@ -54,7 +54,7 @@ const Documents = memo(() => {
           </div>
         ) : undefined}
         <Content>
-          {outlet}
+          <ImageGallery>{outlet}</ImageGallery>
           {giscus && <Comment />}
         </Content>
       </Center>

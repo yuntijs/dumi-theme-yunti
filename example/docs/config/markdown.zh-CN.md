@@ -138,3 +138,19 @@ tag:
 tag: New
 ---
 ```
+
+## 图片组件 Image
+
+```md
+<Image
+  src="https://gw.alipayobjects.com/zos/kitchen/sLO%24gbrQtp/lobe-chat.webp"
+/>
+```
+
+图片则渲染为 (支持图片集)：
+
+<Image
+src="https://gw.alipayobjects.com/zos/kitchen/sLO%24gbrQtp/lobe-chat.webp"
+/>
+
+<Image src="https://gw.alipayobjects.com/zos/kitchen/8Ab%24hLJ5ur/cover.webp" />

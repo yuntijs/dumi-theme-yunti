@@ -14,6 +14,16 @@ const GlobalStyle = createGlobalStyle`
       display: none;
     }
   }
+
+  .dumi-default-table {
+    &-content {
+      table {
+        display: table;
+        table-layout: auto;
+        width: 100%;
+      }
+    }
+  }
 `;
 
 export default GlobalStyle;
