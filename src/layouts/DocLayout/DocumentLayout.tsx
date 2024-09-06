@@ -125,7 +125,7 @@ const DocumentLayout = memo(() => {
     return (
       <>
         <HelmetBlock />
-        {outlet}
+        {clientRender && outlet}
       </>
     );
   }
