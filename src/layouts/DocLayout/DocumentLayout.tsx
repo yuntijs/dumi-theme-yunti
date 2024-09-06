@@ -2,7 +2,7 @@ import { Layout } from '@lobehub/ui';
 import { useTheme } from 'antd-style';
 import { Helmet, useIntl, useLocation, useOutlet } from 'dumi';
 import isEqual from 'fast-deep-equal';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { shallow } from 'zustand/shallow';
 
 import { useResponsive } from '@/hooks/useResponsive';
@@ -111,6 +111,10 @@ const DocumentLayout = memo(() => {
     document.body.scrollTo(0, 0);
   }, [siteTitle]);
 
+  // @Todo: 未解决 React SSR 问题之前，先只 SSR Helmet，保证 SEO 可用
+  const [clientRender, setClientRender] = useState(false);
+  useEffect(() => setClientRender(true), []);
+
   const outlet = useOutlet();
 
   if (
@@ -129,22 +133,24 @@ const DocumentLayout = memo(() => {
   return (
     <>
       <HelmetBlock />
-      <Layout
-        asideWidth={theme.sidebarWidth}
-        footer={customConfig?.footer !== false && <Footer />}
-        header={customConfig?.header !== false && <Header />}
-        headerHeight={mobile && page !== 'home' ? theme.headerHeight + 36 : theme.headerHeight}
-        // @Todo: workaround for sidebar
-        key={hideSidebar ? 'full' : 'no-sidebar'}
-        sidebar={hideSidebar ? undefined : <Sidebar />}
-        toc={hideToc ? undefined : <Toc />}
-        tocWidth={hideToc ? 0 : theme.tocWidth}
-      >
-        {customConfig && outlet}
-        {!customConfig && page === 'home' && <Home />}
-        {!customConfig && page === 'changelog' && <Changelog />}
-        {!customConfig && page === 'docs' && <Docs />}
-      </Layout>
+      {clientRender && (
+        <Layout
+          asideWidth={theme.sidebarWidth}
+          footer={customConfig?.footer !== false && <Footer />}
+          header={customConfig?.header !== false && <Header />}
+          headerHeight={mobile && page !== 'home' ? theme.headerHeight + 36 : theme.headerHeight}
+          // @Todo: workaround for sidebar
+          key={hideSidebar ? 'full' : 'no-sidebar'}
+          sidebar={hideSidebar ? undefined : <Sidebar />}
+          toc={hideToc ? undefined : <Toc />}
+          tocWidth={hideToc ? 0 : theme.tocWidth}
+        >
+          {customConfig && outlet}
+          {!customConfig && page === 'home' && <Home />}
+          {!customConfig && page === 'changelog' && <Changelog />}
+          {!customConfig && page === 'docs' && <Docs />}
+        </Layout>
+      )}
     </>
   );
 });
