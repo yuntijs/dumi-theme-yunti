@@ -47,12 +47,23 @@ const GlobalLayout: FC = () => {
 
   // Demo page should not contain App component
   if (!demoPage) {
-    content = <App>{outlet}</App>;
+    content = (
+      <App>
+        {/**
+        * @Todo 更新到 React 19 后，可移除这部分代码
+        * This removes anything added to html from extensions, causing hydration issue
+         https://github.com/remix-run/remix/issues/4822
+         https://github.com/facebook/react/issues/24430
+       */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.querySelectorAll("html > script").forEach((s) => s.parentNode?.removeChild(s));`,
+          }}
+        />
+        {outlet}
+      </App>
+    );
   }
-
-  // if (!isBrowser) {
-  //   (global as any).styleCache = styleCache;
-  // }
 
   return (
     <StyleProvider

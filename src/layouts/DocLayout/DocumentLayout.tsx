@@ -58,7 +58,7 @@ const DocumentLayout = memo(() => {
   const shouldHideToc = fm.toc === false || noToc;
   const hideToc = mobile ? shouldHideToc : !laptop || shouldHideToc;
 
-  const HelmetBlock = useCallback(() => {
+  const getHelmetBlock = useCallback(() => {
     const title = customConfig?.title || fm.title;
     const description = customConfig?.description || fm.description || themeConfig.description;
     const keywords = customConfig?.keywords || fm.keywords || themeConfig.keywords;
@@ -124,7 +124,7 @@ const DocumentLayout = memo(() => {
   ) {
     return (
       <>
-        <HelmetBlock />
+        {getHelmetBlock()}
         {clientRender && outlet}
       </>
     );
@@ -132,7 +132,7 @@ const DocumentLayout = memo(() => {
 
   return (
     <>
-      <HelmetBlock />
+      {getHelmetBlock()}
       {clientRender && (
         <Layout
           asideWidth={theme.sidebarWidth}

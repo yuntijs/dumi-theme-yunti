@@ -102,12 +102,9 @@ export default defineConfig({
     { id: 'en-US', name: 'English', suffix: '-en' },
   ],
   mfsu: isWin ? undefined : {},
+  hash: true,
   npmClient: 'pnpm',
-  exportStatic: {
-    // 忽略预渲染失败的错误
-    ignorePreRenderError: true,
-  },
-  ...(isProduction ? { ssr: { builder: 'webpack' } } : {}),
+  ...(isProduction ? { ssr: {} } : {}),
   ...(isPreview ? { devtool: 'source-map' } : {}),
   styles: [
     `html, body { background: transparent;  }

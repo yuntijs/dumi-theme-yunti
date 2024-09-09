@@ -47,7 +47,7 @@ const SSRPlugin = (api: IApi) => {
     })
   );
 
-  if (!api.userConfig.ssr) return;
+  // if (!api.userConfig.ssr) return;
 
   api.logger.info('detect ssr config, when building html will extract css.');
 
@@ -65,8 +65,12 @@ const SSRPlugin = (api: IApi) => {
     return fileName;
   };
 
-  const addLinkStyle = (html: string, cssFile: string) => {
+  const addLinkStyle = (html: string, cssFile: string, prepend = false) => {
     const prefix = api.userConfig.publicPath || api.config.publicPath;
+
+    if (prepend) {
+      return html.replace('<head>', `<head><link rel="stylesheet" href="${prefix + cssFile}">`);
+    }
 
     return html.replace('</head>', `<link rel="stylesheet" href="${prefix + cssFile}"></head>`);
   };
@@ -83,6 +87,7 @@ const SSRPlugin = (api: IApi) => {
         // 1. 提取 antd-style 样式
         const styles = extractEmotionStyle(file.content);
 
+        // 2. 提取每个样式到独立 css 文件
         for (const result of styles) {
           api.logger.event(
             `${chalk.yellow(file.path)} include ${chalk.blue`[${result!.key}]`} ${chalk.yellow(
@@ -93,6 +98,7 @@ const SSRPlugin = (api: IApi) => {
           const cssFile = writeCSSFile(result!.key, result!.ids.join(''), result!.css);
 
           file.content = addLinkStyle(file.content, cssFile);
+
           // @Todo: move '</body></html>' to the end for workaround
           file.content = file.content.replace('</body></html>', '') + '</body></html>';
         }
