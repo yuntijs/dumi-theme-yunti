@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.7.3](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.7.2...v1.7.3)
+
+<sup>Released on **2025-02-07**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Order not work in type and order mix.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Order not work in type and order mix ([2c58815](https://github.com/yuntijs/dumi-theme-yunti/commit/2c58815))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.7.2](https://github.com/yuntijs/dumi-theme-yunti/compare/v1.7.1...v1.7.2)
 
 <sup>Released on **2024-09-09**</sup>
