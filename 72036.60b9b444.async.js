@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdumi_theme_yunti_example=self.webpackChunkdumi_theme_yunti_example||[]).push([[72036],{72036:function(n,e,_){_.d(e,{createInfoServices:function(){return u.M}});var u=_(3747),t=_(20998)}}]);
