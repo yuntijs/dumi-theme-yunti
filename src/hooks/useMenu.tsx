@@ -208,7 +208,10 @@ export const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], stri
                   nextChildrenResult[type] = [];
                 }
                 if (!childrenResultTypeOrder[type]) {
-                  childrenResultTypeOrder[type] = { title: type, order: childType?.order ?? -1 };
+                  childrenResultTypeOrder[type] = {
+                    title: type,
+                    order: childType?.order ?? child?.frontmatter?.order ?? -1,
+                  };
                 } else if (childType?.order) {
                   childrenResultTypeOrder[type].order = childType.order;
                 }
@@ -229,24 +232,25 @@ export const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], stri
                 );
 
               const childItems: any[] = [];
-              childItems.push(
-                ...(childrenGroupOrdered.default?.map(item => ({
-                  label: (
-                    <Link
-                      style={{ display: 'flex', alignItems: 'center' }}
-                      to={`${item.link}${search}`}
-                    >
-                      {before}
-                      {removeTitleCode(item?.title)}
-                      {getItemTag(item.frontmatter?.tag, !before && !after)}
-                      {after}
-                    </Link>
-                  ),
-                  key: item.link.replace(suffixRegExp, ''),
-                })) ?? [])
-              );
               for (const [type, children] of Object.entries(childrenGroupOrdered)) {
-                if (type !== 'default') {
+                if (type === 'default') {
+                  childItems.push(
+                    ...(childrenGroupOrdered.default?.map(item => ({
+                      label: (
+                        <Link
+                          style={{ display: 'flex', alignItems: 'center' }}
+                          to={`${item.link}${search}`}
+                        >
+                          {before}
+                          {removeTitleCode(item?.title)}
+                          {getItemTag(item.frontmatter?.tag, !before && !after)}
+                          {after}
+                        </Link>
+                      ),
+                      key: item.link.replace(suffixRegExp, ''),
+                    })) ?? [])
+                  );
+                } else {
                   childItems.push({
                     type: 'group',
                     label: type,
