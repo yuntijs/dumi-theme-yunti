@@ -69,24 +69,28 @@ export const getColumns = ({ github }: GetColumnParameters) => {
   const more: FooterColumn = {
     items: [
       {
-        description: 'Framework for k8s',
-        openExternal: true,
-        title: 'Kubebb',
-        url: 'https://github.com/kubebb',
-      },
-      {
-        description: 'One-stop LLMOps platform',
-        openExternal: true,
-        title: 'KubeAGI',
-        url: 'https://github.com/kubeagi',
-      },
-      {
+        icon: '🤖',
         description: 'AI agent creation and distribution platform',
         openExternal: true,
         title: 'Botnow',
         url: 'https://botnow.cn',
       },
       {
+        icon: '➡️',
+        description: 'The AI data analyst beside you',
+        openExternal: true,
+        title: 'TabTab',
+        url: 'https://tabtabai.com',
+      },
+      {
+        icon: '🦆',
+        description: 'AI brings you happiness',
+        openExternal: true,
+        title: '伴呀',
+        url: 'https://banya.art/',
+      },
+      {
+        icon: '💁‍♀️',
         description: 'AI Smart Assistant',
         openExternal: true,
         title: '灵小悟',

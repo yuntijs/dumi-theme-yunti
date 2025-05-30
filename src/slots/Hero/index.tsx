@@ -1,4 +1,4 @@
-import { Hero as H } from '@lobehub/ui';
+import { Hero as H } from '@lobehub/ui/awesome';
 import { memo } from 'react';
 
 import { heroActionsSel, heroDescSel, heroTitleSel, isHeroPageSel, useSiteStore } from '@/store';

@@ -1,40 +1,15 @@
-// import { extractStaticStyle } from 'antd-style';
-import createEmotionServer from '@emotion/server/create-instance';
+import { extractStaticStyle } from 'antd-style';
 import chalk from 'chalk';
 import type { IApi } from 'dumi';
 import fs from 'node:fs';
-import path from 'node:path';
+import { join } from 'node:path';
 
 import { getHash } from './utils';
 
-function extractEmotionStyle(html: string) {
-  // copy from emotion ssr
-  // https://github.com/vercel/next.js/blob/deprecated-main/examples/with-emotion-vanilla/pages/_document.js
-  const styles = global.__ANTD_STYLE_CACHE_MANAGER_FOR_SSR__.getCacheList().map(cache => {
-    const result = createEmotionServer(cache).extractCritical(html);
-    if (!result.css) {
-      return null;
-    }
-
-    const { css, ids } = result;
-
-    return {
-      key: cache.key,
-      css,
-      ids,
-      tag: `<style data-emotion="${cache.key} ${result.ids.join(' ')}">${result.css}</style>`,
-    };
-  });
-  return styles.filter(Boolean);
-}
-
+/*
+ * SSR 抽取样式
+ */
 const SSRPlugin = (api: IApi) => {
-  // const ssrCssFileName = `ssr-${Date.now()}.css`;
-
-  // api.describe({
-  //   key: '@',
-  // });
-
   api.describe({
     key: `dumi-theme:${require('../../package.json').name}`,
   });
@@ -47,15 +22,12 @@ const SSRPlugin = (api: IApi) => {
     })
   );
 
-  // if (!api.userConfig.ssr) return;
-
   api.logger.info('detect ssr config, when building html will extract css.');
 
-  // add ssr css file to html
   const writeCSSFile = (key: string, hashKey: string, cssString: string) => {
     const fileName = `ssr-${key}.${getHash(hashKey)}.css`;
 
-    const filePath = path.join(api.paths.absOutputPath, fileName);
+    const filePath = join(api.paths.absOutputPath, fileName);
 
     if (!fs.existsSync(filePath)) {
       api.logger.event(chalk.grey(`write to: ${filePath}`));
@@ -65,13 +37,8 @@ const SSRPlugin = (api: IApi) => {
     return fileName;
   };
 
-  const addLinkStyle = (html: string, cssFile: string, prepend = false) => {
+  const addLinkStyle = (html: string, cssFile: string) => {
     const prefix = api.userConfig.publicPath || api.config.publicPath;
-
-    if (prepend) {
-      return html.replace('<head>', `<head><link rel="stylesheet" href="${prefix + cssFile}">`);
-    }
-
     return html.replace('</head>', `<link rel="stylesheet" href="${prefix + cssFile}"></head>`);
   };
 
@@ -81,39 +48,26 @@ const SSRPlugin = (api: IApi) => {
       .filter(f => !f.path.includes(':'))
 
       .map(file => {
-        // const antdCache = (global as any).__ANTD_CACHE__;
-        // const styles = extractStaticStyle(file.content, { antdCache });
+        const antdCache = (global as any).__ANTD_CACHE__;
 
-        // 1. 提取 antd-style 样式
-        const styles = extractEmotionStyle(file.content);
+        // 提取 antd-style 样式到独立 css 文件
+        const styles = extractStaticStyle(file.content, { antdCache });
 
-        // 2. 提取每个样式到独立 css 文件
         for (const result of styles) {
           api.logger.event(
-            `${chalk.yellow(file.path)} include ${chalk.blue`[${result!.key}]`} ${chalk.yellow(
-              result!.ids.length
+            `${chalk.yellow(file.path)} include ${chalk.blue`[${result.key}]`} ${chalk.yellow(
+              result.ids.length
             )} styles`
           );
 
-          const cssFile = writeCSSFile(result!.key, result!.ids.join(''), result!.css);
+          const cssFile = writeCSSFile(result.key, result.ids.join(''), result.css);
 
           file.content = addLinkStyle(file.content, cssFile);
-
-          // @Todo: move '</body></html>' to the end for workaround
-          file.content = file.content.replace('</body></html>', '') + '</body></html>';
         }
 
         return file;
       })
   );
-
-  // add ssr css file to html
-  api.modifyConfig(memo => {
-    memo.styles ??= [];
-    // memo.styles.push(`/${ssrCssFileName}`);
-
-    return memo;
-  });
 };
 
 export default SSRPlugin;

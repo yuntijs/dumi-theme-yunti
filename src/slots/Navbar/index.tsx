@@ -1,4 +1,4 @@
-import { Icon, TabsNav } from '@lobehub/ui';
+import { Icon, Tabs } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
 import { Link, history, useLocation } from 'dumi';
 import NavbarExtra from 'dumi/theme-default/slots/NavbarExtra';
@@ -48,7 +48,7 @@ const Navbar = memo(() => {
 
   return (
     <>
-      <TabsNav
+      <Tabs
         activeKey={activeMenuItem}
         className={styles.tabs}
         items={nav.map(item => {

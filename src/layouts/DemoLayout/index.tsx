@@ -5,6 +5,8 @@ import { memo } from 'react';
 
 import { useThemeStore } from '@/store';
 
+import AntdV5MonkeyPatch from '../DocLayout/AntdV5MonkeyPatch';
+
 export default memo(() => {
   const themeMode = useThemeStore(st => st.themeMode, isEqual);
   const outlet = useOutlet();
@@ -12,6 +14,7 @@ export default memo(() => {
   return (
     <>
       <ThemeProvider themeMode={themeMode}>{outlet}</ThemeProvider>
+      <AntdV5MonkeyPatch />
     </>
   );
 });

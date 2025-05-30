@@ -9,7 +9,7 @@ const GithubButton = memo(() => {
 
   return repoUrl ? (
     <a href={repoUrl} rel="noreferrer" target={'_blank'}>
-      <ActionIcon icon={Github} size="site" />
+      <ActionIcon icon={Github} size="small" />
     </a>
   ) : undefined;
 });

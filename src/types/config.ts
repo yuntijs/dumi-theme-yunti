@@ -1,4 +1,5 @@
-import type { FeaturesProps, FooterProps, HeroProps } from '@lobehub/ui';
+import type { FooterProps } from '@lobehub/ui';
+import type { FeaturesProps, HeroProps } from '@lobehub/ui/awesome';
 import { ButtonProps, MenuProps } from 'antd';
 import type { IThemeConfig, SocialTypes } from 'dumi/dist/client/theme-api/types';
 import { FooterColumn } from 'rc-footer/es/column';

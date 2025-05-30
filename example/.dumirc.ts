@@ -9,10 +9,10 @@ const isPreview = process.env.PREVIEW === 'true';
 const isWin = process.platform === 'win32';
 
 const themeConfig = defineThemeConfig({
-  logo: 'https://lingwu.cn/v1/gpts/images/c6978e9c-d991-4cd4-a74b-b5189cdf647b',
+  logo: 'https://console.botnow.cn/maas-apis/botstore/v1/gpts/images/d2c17d56-b697-4fad-a9b6-91d5d78b039d',
   actions: [
     {
-      icon: 'Github',
+      github: true,
       link: homepage,
       openExternal: true,
       text: 'Github',

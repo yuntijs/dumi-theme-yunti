@@ -20,7 +20,7 @@ const useStyles = createStyles(
     svg {
       overflow: visible !important;
     }
-  `,
+  `
 );
 
 const DiscordButton = memo(() => {
@@ -29,7 +29,7 @@ const DiscordButton = memo(() => {
 
   return inviteUrl ? (
     <a href={inviteUrl} rel="noreferrer" target={'_blank'}>
-      <ActionIcon className={styles} icon={Discord} size="site" />
+      <ActionIcon className={styles} icon={Discord} size="small" />
     </a>
   ) : undefined;
 });

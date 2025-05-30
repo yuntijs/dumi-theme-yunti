@@ -50,7 +50,7 @@ const NativeSelect = memo<NativeSelectProps>(
     const overflowReference = useRef<SideObject>(null);
     const allowSelectReference = useRef(false);
     const allowMouseUpReference = useRef(true);
-    const selectTimeoutReference = useRef<any>();
+    const selectTimeoutReference = useRef<any>(null);
     const scrollReference = useRef<HTMLDivElement>(null);
 
     const [open, setOpen] = useState(false);
@@ -195,7 +195,7 @@ const NativeSelect = memo<NativeSelectProps>(
                           key={item.value}
                           label={renderItem ? renderItem(item, index) : item.label}
                           prefixCls={cls}
-                          ref={(node) => {
+                          ref={node => {
                             listReference.current[index] = node;
                             listContentReference.current[index] = item.label as string;
                           }}
@@ -243,7 +243,7 @@ const NativeSelect = memo<NativeSelectProps>(
         </FloatingPortal>
       </>
     );
-  },
+  }
 );
 
 export default NativeSelect;

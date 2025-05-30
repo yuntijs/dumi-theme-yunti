@@ -58,7 +58,7 @@ export default () => {
           initialValue={outputs}
           name="outputs"
           title="输出变量"
-          variant="block"
+          variant="filled"
         />
       </Form>
       <Divider

@@ -1,4 +1,4 @@
-import { type FeatureItem } from '@lobehub/ui';
+import type { FeatureItemProps } from '@lobehub/ui/es/awesome/Features';
 
 import { CustomPageConfigItem } from '@/types';
 
@@ -30,7 +30,7 @@ export const heroActionsSel = (s: SiteStore) =>
   localeValueSel(s, s.siteData.themeConfig.hero)?.actions ||
   localeValueSel(s, s.siteData.themeConfig.actions);
 
-export const featuresSel = (s: SiteStore): FeatureItem[] => {
+export const featuresSel = (s: SiteStore): FeatureItemProps[] => {
   if (!isHeroPageSel(s)) return [];
 
   return (
